@@ -26,5 +26,10 @@ namespace Lecture
         {
             this.InitializeComponent();
         }
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            //textblock1.Text = "Hello World!";
+        }
     }
 }

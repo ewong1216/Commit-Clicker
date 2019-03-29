@@ -9,25 +9,76 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <Rectangle Width="200" Height="200" Fill="Bisque" />
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="100" Height="100" Fill="Azure" />
+                    <StackPanel Orientation="Vertical">
+                        <Rectangle Width="100" Height="50" Fill="RosyBrown" />
+                        <Rectangle Width="100" Height="50" Fill="DarkCyan" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="100" Height="100" Fill="Tomato" />
+                    <StackPanel Orientation="Vertical">
+                        <Rectangle Width="100" Height="50" Fill="BurlyWood" />
+                        <Rectangle Width="100" Height="50" Fill="SaddleBrown" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+        <!--Text Stack Panel
+        <StackPanel Background="white">
+            <TextBlock>First</TextBlock>
+            <TextBlock>Second</TextBlock>
+            <TextBlock>Third</TextBlock>
+            <TextBlock>Fourth</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Fifth</TextBlock>
+                <TextBox Text="Sixth"></TextBox>
+                <Button>Seventh</Button>
+            </StackPanel>
+        </StackPanel>
+        -->
+        <!--3x3 Grid Colored Rectangles
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        
-        <!--
+        <Rectangle Fill="Aqua" Grid.Row="0" Grid.Column="0"  Width="250" Height="225" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Rectangle Fill="Orange" Grid.Row="0" Grid.Column="1" Width="200" Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        <Rectangle Fill="LightGreen" Grid.Row="0" Grid.Column="2"  Width="250" Height="225" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Rectangle Fill="PaleVioletRed" Grid.Row="1" Grid.Column="0"  Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Rectangle Fill="DarkGray" Grid.Row="1" Grid.Column="1" />
+        <Rectangle Fill="Purple" Grid.Row="1" Grid.Column="2"  Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Rectangle Fill="Yellow" Grid.Row="2" Grid.Column="0"  Width="250" Height="225" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <Rectangle Fill="CornflowerBlue" Grid.Row="2" Grid.Column="1"  Width="200" Height="200" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Rectangle Fill="Red" Grid.Row="2" Grid.Column="2"  Width="250" Height="225" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        -->
+        <!--3 Vertical rectangles
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
         <Rectangle Fill="Red" Grid.Row="0" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <Rectangle Fill="Green" Grid.Row="1" />
         <Rectangle Fill="Blue" Grid.Row="2" />
         <Button Content="Button" HorizontalAlignment="Right" Margin="0,9.6,10,0" Grid.Row="1" VerticalAlignment="Top"/>
+        -->
         
+        <!--Button and TextBlock
         <Button x:Name="button1" Grid.Row="0" Click="Button1_Click" Content="Button" Margin="0,50,0,0" VerticalAlignment="Top"> </Button>
         <TextBlock x:Name="textblock1" Text="Click the button" Grid.Row="1" TextWrapping="Wrap" FontSize="48" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center"/>
         -->

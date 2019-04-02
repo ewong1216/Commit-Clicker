@@ -13,6 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -26,5 +27,8 @@
         <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0">Email:</TextBlock>
 
         <TextBox Height="40" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+        <TextBox Height="40" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+        <TextBox Height="40" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+        <Button Grid.Row="4" Grid.Column="1" Margin="10,0,0,0">Save</Button>
     </Grid>
 </Page>

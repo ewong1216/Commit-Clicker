@@ -9,6 +9,18 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <RelativePanel MinHeight="300" Grid.Row="1">
+            <Rectangle Name="RedRectangle" Fill="Red" Width="100" Height="100" RelativePanel.AlignRightWithPanel="True" />
+            <Rectangle Name="BlueRectangle" Fill="Blue" Width="50" Height="50" RelativePanel.LeftOf="RedRectangle"/>
+        </RelativePanel>
+        <!--
+        Lots of Rectangles Stack Panel
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
             <Rectangle Width="200" Height="200" Fill="Bisque" />
             <StackPanel Orientation="Vertical">
@@ -30,7 +42,7 @@
             </StackPanel>
         </StackPanel>
         
-        <!--Text Stack Panel
+        Text Stack Panel
         <StackPanel Background="white">
             <TextBlock>First</TextBlock>
             <TextBlock>Second</TextBlock>

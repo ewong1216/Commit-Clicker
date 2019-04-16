@@ -28,6 +28,23 @@ namespace Lecture
             //InnerFrame.Navigate(typeof(Page1));
         }
 
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+        }
+
+        private void IconsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ShareListBoxItem.IsSelected)
+            {
+                ResultTextBox.Text = "Share";
+            }
+            else if (FavoritesListBoxItem.IsSelected)
+            {
+                ResultTextBox.Text = "Favorites";
+            }
+        }
+        /*
         private void CheckBox1_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (CheckBox1.IsChecked.Value)
@@ -96,6 +113,9 @@ namespace Lecture
                 ToggleButtonTextBlock.Text = "Null";
             }
         }
+        */
+
+
 
         /*
         private void HomeButton_Click(object sender, RoutedEventArgs e)

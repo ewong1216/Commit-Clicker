@@ -25,11 +25,46 @@ namespace Lab4
         public MainPage()
         {
             this.InitializeComponent();
+            financialNavigate();
+            FinancialListBoxItem.IsSelected = true;
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+        }
 
+        private void IconsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FinancialListBoxItem.IsSelected)
+            {
+                financialNavigate();
+            }
+            else if (FoodListBoxItem.IsSelected)
+            {
+                foodNavigate();
+            }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            financialNavigate();
+            FinancialListBoxItem.IsSelected = true;
+            FoodListBoxItem.IsSelected = false;
+        }
+
+        private void financialNavigate()
+        {
+            MainPageFrame.Navigate(typeof(Financial));
+            TitleTextBlock.Text = "Financial";
+            BackButton.Visibility = Visibility.Collapsed;
+        }
+
+        private void foodNavigate()
+        {
+            MainPageFrame.Navigate(typeof(Food));
+            TitleTextBlock.Text = "Food";
+            BackButton.Visibility = Visibility.Visible;
         }
     }
 }

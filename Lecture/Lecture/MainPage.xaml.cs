@@ -28,6 +28,20 @@ namespace Lecture
             //InnerFrame.Navigate(typeof(Page1));
         }
 
+        private void CalenderView1_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
+        {
+            var selectedDates = sender.SelectedDates.Select(p => p.Date.Month.ToString() + "/" + p.Date.Day.ToString()).ToArray();
+
+            var values = string.Join(", ", selectedDates);
+            CalenderViewResultTextBlock.Text = values;
+        }
+
+        private void InnerFlyoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Flyout.Hide();
+        }
+
+        /*
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
             SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
@@ -44,6 +58,7 @@ namespace Lecture
                 ResultTextBox.Text = "Favorites";
             }
         }
+        */
         /*
         private void CheckBox1_Tapped(object sender, TappedRoutedEventArgs e)
         {

@@ -28,6 +28,7 @@ namespace Lecture
             //InnerFrame.Navigate(typeof(Page1));
         }
 
+        /*
         private void CalenderView1_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
             var selectedDates = sender.SelectedDates.Select(p => p.Date.Month.ToString() + "/" + p.Date.Day.ToString()).ToArray();
@@ -41,6 +42,21 @@ namespace Lecture
             Flyout.Hide();
         }
 
+        private string[] selectionItems = new string[] {"Ferdinand","Frank", "Frida", "Nigel", "Tag", "Tanya", "Tanner", "Todd"};
+
+        private void AutoSuggestBox1_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            var autosuggestbox = (AutoSuggestBox)sender;
+            var filtered = selectionItems.Where(p => p.StartsWith(autosuggestbox.Text)).ToArray();
+
+            autosuggestbox.ItemsSource = filtered;
+        }
+
+        private void Slider1_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            ProgressBar1.Value = Slider1.Value;
+        }
+        */
         /*
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {

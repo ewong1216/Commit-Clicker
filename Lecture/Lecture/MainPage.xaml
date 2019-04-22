@@ -7,6 +7,50 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" FontFamily="Segoe UI">
 
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="MyBrush" Color="Brown"/>
+            <x:String x:Key="greeting">Hello World</x:String>
+
+            <Style TargetType="Button" x:Key="MyButtonStyle">
+                <Setter Property="Background" Value="Blue"/>
+                <Setter Property="FontFamily" Value="Arial Black"/>
+                <Setter Property="FontSize" Value="36"/>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <StackPanel>
+        <TextBlock Text="HelloWorld" Foreground="{StaticResource MyBrush}"/>
+        <Button Content="My Button Style Example" Height="100" Style="{StaticResource MyButtonStyle}"/>
+    </StackPanel>
+    
+    
+    
+    
+    
+    
+    
+    <!-- Scroll Viewer
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Image Source="Assets/Financial.png" Height="800" Stretch="None"/>
+        </ScrollViewer>
+    </Grid>
+    -->
+    
+    
+    <!-- More input controls: time picker, date picker, calender view, flyout button, auto suggest, slider, progress bar
     <Grid Margin="20,20,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -68,8 +112,21 @@
                 </MenuFlyout>
             </Button.Flyout>
         </Button>
+
+        <TextBlock Grid.Row="5" Text="AutosuggestBox" VerticalAlignment="Center"/>
+        <AutoSuggestBox Name="AutoSuggestBox1" Margin="20,0,0,20" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" QueryIcon="Find" PlaceholderText="Find Something" 
+                        Width="200" TextChanged="AutoSuggestBox1_TextChanged"/>
+
+        <TextBlock Grid.Row="6" Text="Slider" VerticalAlignment="Center"/>
+        <Slider Name="Slider1" Margin="20,0,0,20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Maximum="100" Minimum="0" Width="200" ValueChanged="Slider1_ValueChanged"/>
+
+        <TextBlock Grid.Row="7" Text="ProgressBar" VerticalAlignment="Center"/>
+        <ProgressBar Name="ProgressBar1" Margin="20,0,0,20" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" Width="200" Maximum="100"/> Value="{x:Bind Slider1.Value, Mode=OneWay}"
+
+        <TextBlock Grid.Row="8" Text="ProgressRing" VerticalAlignment="Center"/>
+        <ProgressRing Name="ProgressRing1" Margin="20,0,0,20" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" Width="50" Height="50" IsActive="True"/>
     </Grid>
-    
+    -->
     
     
     

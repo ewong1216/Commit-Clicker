@@ -25,6 +25,27 @@ namespace Lab5
         public MainPage()
         {
             this.InitializeComponent();
+            InnerFrame.Navigate(typeof(DonutPage));
+        }
+
+        private void DonutPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            InnerFrame.Navigate(typeof(DonutPage));
+        }
+
+        private void CoffeePageButton_Click(object sender, RoutedEventArgs e)
+        {
+            InnerFrame.Navigate(typeof(CoffeePage));
+        }
+
+        private void SchedulePageButton_Click(object sender, RoutedEventArgs e)
+        {
+            InnerFrame.Navigate(typeof(SchedulePage));
+        }
+
+        private void CompletePageButton_Click(object sender, RoutedEventArgs e)
+        {
+            InnerFrame.Navigate(typeof(CompletePage));
         }
     }
 }

@@ -23,32 +23,37 @@
             <Button Name="RoastButton" Content="Roast" Style="{StaticResource CoffeeButton}">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
-                        <MenuFlyoutItem Text="None"/>
-                        <MenuFlyoutItem Text="Dark"/>
-                        <MenuFlyoutItem Text="Medium"/>
+                        <MenuFlyoutItem Text="None" Click="RoastNone_Click"/>
+                        <MenuFlyoutItem Text="Dark" Click="RoastDark_Click"/>
+                        <MenuFlyoutItem Text="Medium" Click="RoastMedium_Click"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
             <Button Name="SweetenerButton" Content="Sweetener" Style="{StaticResource CoffeeButton}" Margin="10,0,10,0">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
-                        <MenuFlyoutItem Text="None"/>
-                        <MenuFlyoutItem Text="Sugar"/>
+                        <MenuFlyoutItem Text="None" Click="SweetenerNone_Click"/>
+                        <MenuFlyoutItem Text="Sugar" Click="SweetenerSugar_Click"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
             <Button Name="CreamButton" Content="Cream" Style="{StaticResource CoffeeButton}">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
-                        <MenuFlyoutItem Text="None"/>
-                        <MenuFlyoutItem Text="2% Milk"/>
-                        <MenuFlyoutItem Text="Whole Milk"/>
+                        <MenuFlyoutItem Text="None" Click="CreamNone_Click"/>
+                        <MenuFlyoutItem Text="2% Milk" Click="Cream2_Click"/>
+                        <MenuFlyoutItem Text="Whole Milk" Click="CreamWhole_Click"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
         </StackPanel>
 
-        <TextBlock Grid.Row="2" Text="Coffee:" Margin="20,20,0,0" Style="{StaticResource WhiteFontStyle}"/>
+        <StackPanel Grid.Row="2" Margin="20,20,0,0" Orientation="Horizontal">
+            <TextBlock Text="Coffee:" Style="{StaticResource WhiteFontStyle}" Margin="0,0,20,0"/>
+            <TextBlock Name="RoastText" Text="" Style="{StaticResource WhiteFontStyle}" Visibility="Collapsed"/>
+            <TextBlock Name="SweetenerText" Text=" + None" Style="{StaticResource WhiteFontStyle}" Visibility="Collapsed"/>
+            <TextBlock Name="CreamText" Text=" + None" Style="{StaticResource WhiteFontStyle}" Visibility="Collapsed"/>
+        </StackPanel>
     </Grid>
 </Page>
         

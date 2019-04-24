@@ -26,5 +26,60 @@ namespace Lab5
         {
             this.InitializeComponent();
         }
+
+        private void RoastNone_Click(object sender, RoutedEventArgs e)
+        {
+            allCollapsed();
+        }
+
+        private void RoastDark_Click(object sender, RoutedEventArgs e)
+        {
+            RoastText.Text = "Dark";
+            allVisible();
+        }
+
+        private void allVisible()
+        {
+            RoastText.Visibility = Visibility.Visible;
+            SweetenerText.Visibility = Visibility.Visible;
+            CreamText.Visibility = Visibility.Visible;
+        }
+        private void allCollapsed()
+        {
+            RoastText.Visibility = Visibility.Collapsed;
+            SweetenerText.Visibility = Visibility.Collapsed;
+            CreamText.Visibility = Visibility.Collapsed;
+        }
+
+        private void RoastMedium_Click(object sender, RoutedEventArgs e)
+        {
+            RoastText.Text = "Medium";
+            allVisible();
+        }
+
+        private void SweetenerNone_Click(object sender, RoutedEventArgs e)
+        {
+            SweetenerText.Text = " + None";
+        }
+
+        private void SweetenerSugar_Click(object sender, RoutedEventArgs e)
+        {
+            SweetenerText.Text = " + Sugar";
+        }
+
+        private void CreamNone_Click(object sender, RoutedEventArgs e)
+        {
+            CreamText.Text = " + None";
+        }
+
+        private void Cream2_Click(object sender, RoutedEventArgs e)
+        {
+            CreamText.Text = " + 2% Milk";
+        }
+
+        private void CreamWhole_Click(object sender, RoutedEventArgs e)
+        {
+            CreamText.Text = " + Whole Milk";
+        }
     }
 }

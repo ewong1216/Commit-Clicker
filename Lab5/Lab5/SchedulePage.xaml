@@ -14,11 +14,14 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <Image Source="Assets/logobw.png"/>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <TextBlock Grid.Row="1" Text="Pickup:" Style="{StaticResource WhiteFontStyle}" Margin="20,0,20,0"/>
-            <CalendarDatePicker Grid.Row="1"></CalendarDatePicker>
-        </StackPanel>
+        <Image Source="Assets/logobw.png" Style="{StaticResource LogoStyle}" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="1" Text="Pickup:" Style="{StaticResource WhiteFontStyle}" Margin="20,20,20,0"/>
+        <CalendarDatePicker Grid.Row="1" Grid.Column="2" Margin="0,20,0,20"/>
+        <TimePicker Grid.Row="2" Grid.Column="1" Foreground="White"/>
     </Grid>
 </Page>

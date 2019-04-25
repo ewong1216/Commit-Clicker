@@ -8,7 +8,12 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
-    </Grid>
+    <RelativePanel>
+        <Image Name="logo" Source="Assets/logocolor.png" Style="{StaticResource LogoStyle}"/>
+        <Image Name="ticket" Source="Assets/ticket.jpg" RelativePanel.Below="logo" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,0,0,20"/>
+        <RelativePanel Name="TextStackPanel" RelativePanel.AlignHorizontalCenterWith="ticket" RelativePanel.AlignVerticalCenterWith="ticket">
+            <TextBlock Name="Order" Text="Order" FontSize="36" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            <TextBlock Name="Number" Text="96" FontSize="50" RelativePanel.Below="Order" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        </RelativePanel>
+    </RelativePanel>
 </Page>

@@ -18,7 +18,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Image Name="logo" Source="Assets/logobw.png" HorizontalAlignment="Left" Stretch="UniformToFill"/>
+        <Image Source="Assets/logobw.png" Style="{StaticResource LogoStyle}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,20,0,0">
             <Button Name="RoastButton" Content="Roast" Style="{StaticResource CoffeeButton}">
                 <Button.Flyout>

@@ -5,9 +5,35 @@
     xmlns:local="using:Lecture"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" FontFamily="Segoe UI">
+    mc:Ignorable="d" FontFamily="Segoe UI"
+    xmlns:data="using:Lecture">
 
+    
+    <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
 
+        <GridView ItemsSource="{x:Bind Books}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Book">
+                    <StackPanel>
+                        <Image Width="150" Source="{x:Bind CoverImage}" />
+                        <TextBlock FontSize="15" Text="{x:Bind Title}"/>
+                        <TextBlock FontSize="16" Text="{x:Bind Author}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        
+        <TextBlock Grid.Row="1" Name="ResultTextBlock" FontSize="24" Foreground="Red" FontWeight="Bold" Margin="0,20,0,0"/>
+        
+    </Grid>
+
+    
+    
+    <!--Styles
     <Page.Resources>
         <ResourceDictionary>
             <SolidColorBrush x:Key="MyBrush" Color="Brown"/>
@@ -20,17 +46,7 @@
             </Style>
         </ResourceDictionary>
     </Page.Resources>
-
-    <StackPanel>
-        <TextBlock Text="HelloWorld" Foreground="{StaticResource MyBrush}"/>
-        <Button Content="My Button Style Example" Height="100" Style="{StaticResource MyButtonStyle}"/>
-    </StackPanel>
-    
-    
-    
-    
-    
-    
+    -->
     
     <!-- Scroll Viewer
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

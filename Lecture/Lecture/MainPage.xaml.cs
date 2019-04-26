@@ -22,10 +22,13 @@ namespace Lecture
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private List<Book> Books;
         public MainPage()
         {
             this.InitializeComponent();
-            //InnerFrame.Navigate(typeof(Page1));
+
+            Books = BookManager.GetBooks();
+            
         }
 
         /*

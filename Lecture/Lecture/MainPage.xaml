@@ -15,7 +15,7 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <GridView ItemsSource="{x:Bind Books}">
+        <GridView ItemsSource="{x:Bind Books}" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Book">
                     <StackPanel>

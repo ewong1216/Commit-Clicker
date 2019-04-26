@@ -31,6 +31,12 @@ namespace Lecture
             
         }
 
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var book = (Book)e.ClickedItem;
+            ResultTextBlock.Text = "You selected " + book.Title;
+        }
+
         /*
         private void CalenderView1_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {

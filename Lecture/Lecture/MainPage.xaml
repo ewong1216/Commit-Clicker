@@ -7,7 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" FontFamily="Segoe UI"
     xmlns:data="using:Lecture">
-
+    <Page.Resources>
+        <DataTemplate x:DataType="data:Book" x:Key="BookDataTemplate">
+            <StackPanel>
+                <Image Width="150" Source="{x:Bind CoverImage}" />
+                <TextBlock FontSize="15" Text="{x:Bind Title}"/>
+                <TextBlock FontSize="16" Text="{x:Bind Author}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
     
     <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="20">
         <Grid.RowDefinitions>
@@ -15,18 +23,9 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <GridView ItemsSource="{x:Bind Books}" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="data:Book">
-                    <StackPanel>
-                        <Image Width="150" Source="{x:Bind CoverImage}" />
-                        <TextBlock FontSize="15" Text="{x:Bind Title}"/>
-                        <TextBlock FontSize="16" Text="{x:Bind Author}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-        
+        <GridView ItemsSource="{x:Bind Books}" IsItemClickEnabled="True" ItemClick="GridView_ItemClick" ItemTemplate="{StaticResource BookDataTemplate}"/>
+        <Button Content="Click" Click="Button_Click"/>
+
         <TextBlock Grid.Row="1" Name="ResultTextBlock" FontSize="24" Foreground="Red" FontWeight="Bold" Margin="0,20,0,0"/>
         
     </Grid>

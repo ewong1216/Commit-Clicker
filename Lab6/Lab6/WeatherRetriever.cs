@@ -14,10 +14,10 @@ namespace Lab6
         private string apikey = "EZcJ5o99vra7E5QMq2QQt";
         private string secret = "nnekBxezdDWD2HkL6uQHJgw57ne8pg45Y69sO1Df";
 
-        public async Task<ObservationsRootObject> GetObservations()
+        public async Task<ObservationsRootObject> GetObservations(string cityLink)
         {
             HttpClient httpClient = new HttpClient();
-            string apiUrl = $"https://api.aerisapi.com/observations/Seattle,WA,US/?client_id={apikey}&client_secret={secret}";
+            string apiUrl = $"https://api.aerisapi.com/observations/{cityLink}/?client_id={apikey}&client_secret={secret}";
 
             string responseString = await httpClient.GetStringAsync(apiUrl);
 

@@ -41,13 +41,13 @@ namespace Lab6
             ViewModel.Temperature = "Loading...";
             ViewModel.ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/3/3a/Gray_circles_rotate.gif";
 
-            await UpdateWeather();
+            await UpdateWeather("Seattle,WA");
         }
 
-        private async Task UpdateWeather()
+        private async Task UpdateWeather(string cityLink)
         {
             WeatherRetriever weatherRetriever = new WeatherRetriever();
-            ObservationsRootObject observationsRoot = await weatherRetriever.GetObservations();
+            ObservationsRootObject observationsRoot = await weatherRetriever.GetObservations(cityLink);
 
             ViewModel.Description = observationsRoot.response.ob.weatherShort;
             ViewModel.LocationName = observationsRoot.response.place.name + ", " + observationsRoot.response.place.state + " " + observationsRoot.response.place.country;

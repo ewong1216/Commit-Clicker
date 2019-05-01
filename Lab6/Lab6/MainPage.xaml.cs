@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using Lab6.ViewModels;
 using Lab6.Models;
 using System.Threading.Tasks;
-using static Lab6.Models.Observations;
+using Lab6.Models.AutoComplete;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -59,5 +59,46 @@ namespace Lab6
         {
             return "http://cdn.aerisapi.com/wxblox/icons/" + iconname;
         }
+
+        private async Task SearchForCities(string userText)
+        {
+            WeatherRetriever weatherRetriever = new WeatherRetriever();
+            AutoCompleteRootObject acr = await weatherRetriever.GetSuggestions(userText);
+
+            ViewModel.AutoCompleteNames = new List<string>();
+            foreach(Models.AutoComplete.Response resp in acr.response)
+            {
+                string fullname = resp.place.name;
+                if(resp.place.state != null && resp.place.state != "")
+                {
+                    fullname += "," + resp.place.state;
+                }
+                fullname += "," + resp.place.country;
+                ViewModel.AutoCompleteNames.Add(fullname);
+            }
+
+            LocationAutoSuggestBox.ItemsSource = ViewModel.AutoCompleteNames;
+        }
+
+        private async void LocationAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            if(args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                await SearchForCities(LocationAutoSuggestBox.Text);
+            }
+        }
+
+        private async void LocationAutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            if(args.ChosenSuggestion != null)
+            {
+                await UpdateWeather((string)args.ChosenSuggestion);
+            }
+            else
+            {
+                await SearchForCities(args.QueryText);
+            }
+        }
     }
 }
+    

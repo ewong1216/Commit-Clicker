@@ -17,5 +17,7 @@ namespace Lab6.ViewModels
         public string Temperature { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
+
+        public List<string> AutoCompleteNames { get; set; }
     }
 }

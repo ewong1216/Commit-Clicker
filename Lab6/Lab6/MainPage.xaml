@@ -5,6 +5,7 @@
     xmlns:local="using:Lab6"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Lab6.ViewModels"
     mc:Ignorable="d">
 
     <StackPanel Background="LightBlue">
@@ -20,6 +21,23 @@
             <TextBlock Name="TemperatureTextBlock" Text="{x:Bind ViewModel.Temperature, Mode=OneWay}" FontSize="52" Foreground="White" HorizontalAlignment="Center"/>
             <TextBlock Name="DescriptionTextBlock" Text="{x:Bind ViewModel.Description, Mode=OneWay}" FontSize="36" Foreground="White" HorizontalAlignment="Center"/>
             <TextBlock Name="LocationNameTextBlock" Text="{x:Bind ViewModel.LocationName, Mode=OneWay}" FontSize="24" Foreground="White" HorizontalAlignment="Center" />
+
+            <GridView ItemsSource="{x:Bind ViewModel.Forecast}">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:ForecastDayViewModel" >
+                        <StackPanel>
+                            <TextBlock FontSize="18" Text="{x:Bind Date}"/>
+                            <TextBlock FontSize="18" Text="{x:Bind TemperatureRange}"/>
+                            <Image>
+                                <Image.Source>
+                                    <BitmapImage UriSource="{x:Bind ImageUrl, Mode=OneWay}"/>
+                                </Image.Source>
+                            </Image>
+                            <TextBlock FontSize="18" Text="{x:Bind Description}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
         </StackPanel>
     </StackPanel>
 </Page>

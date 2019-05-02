@@ -16,6 +16,7 @@ using Lab6.ViewModels;
 using Lab6.Models;
 using System.Threading.Tasks;
 using Lab6.Models.AutoComplete;
+using Lab6.Models.Forecast;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -28,7 +29,7 @@ namespace Lab6
     public sealed partial class MainPage : Page
     {
         public MainPageViewModel ViewModel { get; set; } = new MainPageViewModel();
-
+        
         public MainPage()
         {
             this.InitializeComponent();
@@ -51,8 +52,25 @@ namespace Lab6
 
             ViewModel.Description = observationsRoot.response.ob.weatherShort;
             ViewModel.LocationName = observationsRoot.response.place.name + ", " + observationsRoot.response.place.state + " " + observationsRoot.response.place.country;
-            ViewModel.Temperature = "" + observationsRoot.response.ob.tempF;
+            ViewModel.Temperature = "" + observationsRoot.response.ob.tempF + "F";
             ViewModel.ImageUrl = GetIconURLFromName(observationsRoot.response.ob.icon);
+
+            //So that if you choose a different city it removes the forecast for previous city
+            ViewModel.Forecast.Clear();
+
+            ForecastRootObject forecastRoot = await weatherRetriever.GetForecast(cityLink);
+            foreach(Models.Forecast.Response response in forecastRoot.response)
+            {
+                foreach(Period period in response.periods)
+                {
+                    ForecastDayViewModel dayViewModel = new ForecastDayViewModel { Date=period.dateTimeISO.Date.Month + "/" + period.dateTimeISO.Date.Day,
+                        TemperatureRange = "" + period.minTempF + " - " + period.maxTempF,
+                        ImageUrl =GetIconURLFromName(period.icon),
+                        Description=period.weather };
+                    ViewModel.Forecast.Add(dayViewModel);
+                }
+            }
+            
         }
 
         private string GetIconURLFromName(string iconname)

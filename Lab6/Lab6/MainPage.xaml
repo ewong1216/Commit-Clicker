@@ -22,13 +22,13 @@
             <TextBlock Name="DescriptionTextBlock" Text="{x:Bind ViewModel.Description, Mode=OneWay}" FontSize="36" Foreground="White" HorizontalAlignment="Center"/>
             <TextBlock Name="LocationNameTextBlock" Text="{x:Bind ViewModel.LocationName, Mode=OneWay}" FontSize="24" Foreground="White" HorizontalAlignment="Center" />
 
-            <GridView ItemsSource="{x:Bind ViewModel.Forecast}">
+            <GridView ItemsSource="{x:Bind ViewModel.Forecast}" HorizontalAlignment="Center" VerticalAlignment="Stretch">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:ForecastDayViewModel" >
                         <StackPanel>
                             <TextBlock FontSize="18" Text="{x:Bind Date}"/>
                             <TextBlock FontSize="18" Text="{x:Bind TemperatureRange}"/>
-                            <Image>
+                            <Image Width="200" Height="200">
                                 <Image.Source>
                                     <BitmapImage UriSource="{x:Bind ImageUrl, Mode=OneWay}"/>
                                 </Image.Source>

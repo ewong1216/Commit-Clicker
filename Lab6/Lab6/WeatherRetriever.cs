@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Lab6.Models;
 using Lab6.Models.AutoComplete;
+using System.Collections.ObjectModel;
+using Lab6.Models.Forecast;
 
 namespace Lab6
 {
@@ -38,6 +40,18 @@ namespace Lab6
             AutoCompleteRootObject suggestions = JsonConvert.DeserializeObject<AutoCompleteRootObject>(responseString);
 
             return suggestions;
+        }
+
+        public async Task<ForecastRootObject> GetForecast(string cityLink)
+        {
+            HttpClient httpClient = new HttpClient();
+            string apiUrl = $"https://api.aerisapi.com/forecasts/{cityLink}?limit=4&filter=day&client_id={apikey}&client_secret={secret}";
+
+            string responseString = await httpClient.GetStringAsync(apiUrl);
+
+            ForecastRootObject forecast = JsonConvert.DeserializeObject<ForecastRootObject>(responseString);
+
+            return forecast;
         }
     }
 }

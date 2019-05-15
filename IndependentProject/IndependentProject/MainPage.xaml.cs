@@ -22,9 +22,35 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        public Data data = new Data();
+
         public MainPage()
         {
             this.InitializeComponent();
+            data.commitsIncrement = 1;
+            InnerFrame.Navigate(typeof(ButtonPage), data);
+        }
+
+        private void NavigateButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            if (b.Name.Equals("UpgradesButton"))
+            {
+                InnerFrame.Navigate(typeof(UpgradesPage), data);
+            }
+            else if (b.Name.Equals("SpecialButton"))
+            {
+                InnerFrame.Navigate(typeof(SpecialPage), data);
+            }
+            else if (b.Name.Equals("CustomizeButton"))
+            {
+                InnerFrame.Navigate(typeof(CustomizePage));
+            }
+            else if(b.Name.Equals("AchievementsButton"))
+            {
+                InnerFrame.Navigate(typeof(AchievementsPage));
+            }
         }
     }
 }

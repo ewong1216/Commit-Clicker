@@ -36,7 +36,17 @@
             <Button Name="SpecialButton" Content="Special" Grid.Row="1" Grid.Column="0" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="CustomizeButton" Content="Customize" Grid.Row="0" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="AchievementsButton" Content="Achievements" Grid.Row="1" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
-            <TextBlock Name="TotalCommits" Grid.Row="0" Grid.Column="1" FontSize="30" HorizontalAlignment="Center" Text="{x:Bind Data.commits.ToString(), Mode=OneWay}"/>
+            <RelativePanel Grid.Row="0" Grid.Column="1">
+                <StackPanel Name="Commits" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal" Margin="0,20,0,10">
+                    <TextBlock Name="TotalCommits" FontSize="30" Text="{x:Bind Data.commits.ToString(), Mode=OneWay}"/>
+                    <TextBlock FontSize="30" Text="Commits" Margin="20,0,0,0"/>
+                </StackPanel>
+                <StackPanel RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Commits" Orientation="Horizontal">
+                    <TextBlock Name="CommitsPerSecond" FontSize="30" Text="{x:Bind Data.commitsPerSecond.ToString(), Mode=OneWay}"/>
+                    <TextBlock FontSize="30" Text="commits/s" Margin="20,0,0,0"/>
+                </StackPanel>
+            </RelativePanel>
+            
         </Grid>
 
         <Frame Name="InnerFrame" Grid.Row="1" />

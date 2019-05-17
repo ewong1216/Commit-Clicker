@@ -23,13 +23,15 @@ namespace IndependentProject
     public sealed partial class MainPage : Page
     {
 
-        public Data data = new Data();
+        public Data Data { get; set; } = new Data();
 
         public MainPage()
         {
             this.InitializeComponent();
-            data.commitsIncrement = 1;
-            InnerFrame.Navigate(typeof(ButtonPage), data);
+            Data.commitsIncrement = 1;
+            Data.commits = 0;
+            Data.commitsPerSecond = 0;
+            InnerFrame.Navigate(typeof(ButtonPage), Data);
         }
 
         private void NavigateButton_Click(object sender, RoutedEventArgs e)
@@ -37,11 +39,11 @@ namespace IndependentProject
             Button b = (Button)sender;
             if (b.Name.Equals("UpgradesButton"))
             {
-                InnerFrame.Navigate(typeof(UpgradesPage), data);
+                InnerFrame.Navigate(typeof(UpgradesPage), Data);
             }
             else if (b.Name.Equals("SpecialButton"))
             {
-                InnerFrame.Navigate(typeof(SpecialPage), data);
+                InnerFrame.Navigate(typeof(SpecialPage), Data);
             }
             else if (b.Name.Equals("CustomizeButton"))
             {

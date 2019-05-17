@@ -22,7 +22,7 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class ButtonPage : Page
     {
-        Data data;
+        Data Data;
         public ButtonPage()
         {
             this.InitializeComponent();
@@ -31,12 +31,12 @@ namespace IndependentProject
 
         private void CommitButton_Click(object sender, RoutedEventArgs e)
         {
-            data.commits += data.commitsIncrement;
+            Data.commits += Data.commitsIncrement;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            data = (Data)e.Parameter;
+            Data = (Data)e.Parameter;
         }
     }
 }

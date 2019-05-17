@@ -36,7 +36,7 @@
             <Button Name="SpecialButton" Content="Special" Grid.Row="1" Grid.Column="0" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="CustomizeButton" Content="Customize" Grid.Row="0" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="AchievementsButton" Content="Achievements" Grid.Row="1" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
-            <TextBlock Name="TotalCommits" Grid.Row="0" Grid.Column="1" Text="{x:Bind data.commits}"/>
+            <TextBlock Name="TotalCommits" Grid.Row="0" Grid.Column="1" FontSize="30" HorizontalAlignment="Center" Text="{x:Bind Data.commits.ToString(), Mode=OneWay}"/>
         </Grid>
 
         <Frame Name="InnerFrame" Grid.Row="1" />

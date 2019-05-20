@@ -30,6 +30,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Button Name="UpgradesButton" Content="Upgrades" Grid.Row="0" Grid.Column="0" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
@@ -39,7 +40,7 @@
             <RelativePanel Grid.Row="0" Grid.Column="1">
                 <StackPanel Name="Commits" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal" Margin="0,20,0,10">
                     <TextBlock Name="TotalCommits" FontSize="30" Text="{x:Bind Data.commits.ToString(), Mode=OneWay}"/>
-                    <TextBlock FontSize="30" Text="Commits" Margin="20,0,0,0"/>
+                    <TextBlock FontSize="30" Text="commits" Margin="20,0,0,0"/>
                 </StackPanel>
                 <StackPanel RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Commits" Orientation="Horizontal">
                     <TextBlock Name="CommitsPerSecond" FontSize="30" Text="{x:Bind Data.commitsPerSecond.ToString(), Mode=OneWay}"/>
@@ -49,6 +50,12 @@
             
         </Grid>
 
-        <Frame Name="InnerFrame" Grid.Row="1" />
+        <Frame Name="InnerFrame" Grid.Row="1"  />
+        <Button Name="OptionsButton" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60" Height="60" Background="White" Click="NavigateButton_Click">
+            <Button.Content>
+                <Image Stretch="Fill" Source="Assets/gear.jpg"/>
+            </Button.Content>
+        </Button>
+        <Button Name="BackButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" FontSize="45" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Click="BackButton_Click"/>
     </Grid>
 </Page>

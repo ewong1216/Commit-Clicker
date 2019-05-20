@@ -32,11 +32,13 @@ namespace IndependentProject
             Data.commits = 0;
             Data.commitsPerSecond = 0;
             InnerFrame.Navigate(typeof(ButtonPage), Data);
+            BackButton.Visibility = Visibility.Collapsed;
         }
 
         private void NavigateButton_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
+            OptionsButton.Visibility = Visibility.Visible;
             if (b.Name.Equals("UpgradesButton"))
             {
                 InnerFrame.Navigate(typeof(UpgradesPage), Data);
@@ -53,6 +55,19 @@ namespace IndependentProject
             {
                 InnerFrame.Navigate(typeof(AchievementsPage));
             }
+            else if (b.Name.Equals("OptionsButton"))
+            {
+                InnerFrame.Navigate(typeof(OptionsPage));
+                OptionsButton.Visibility = Visibility.Collapsed;
+            }
+            BackButton.Visibility = Visibility.Visible;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            InnerFrame.Navigate(typeof(ButtonPage), Data);
+            BackButton.Visibility = Visibility.Collapsed;
+            OptionsButton.Visibility = Visibility.Visible;
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="IndependentProject.UpgradesPage"
+    x:Class="IndependentProject.OptionsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:IndependentProject"
@@ -9,13 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <ScrollViewer Grid.Column="0">
-            <!--Grid View here to display all of the helpers-->
-        </ScrollViewer>
+        <TextBlock Text="DummyOptions"/>
     </Grid>
 </Page>

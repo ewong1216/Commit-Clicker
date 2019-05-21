@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
 
         <ScrollViewer Grid.Column="0">
-            <!--Grid View here to display all of the helpers-->
+            <!--Grid View here to display all of the helpers--> 
         </ScrollViewer>
     </Grid>
 </Page>

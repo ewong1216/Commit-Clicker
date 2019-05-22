@@ -22,9 +22,16 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class UpgradesPage : Page
     {
+        Data Data;
+
         public UpgradesPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Data = (Data)e.Parameter;
         }
     }
 }

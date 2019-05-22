@@ -39,23 +39,23 @@
             <Button Name="AchievementsButton" Content="Achievements" Grid.Row="1" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <RelativePanel Grid.Row="0" Grid.Column="1">
                 <StackPanel Name="Commits" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal" Margin="0,20,0,10">
-                    <TextBlock Name="TotalCommits" FontSize="30" Text="{x:Bind Data.commits.ToString(), Mode=OneWay}"/>
+                    <TextBlock Name="TotalCommits" FontSize="30" Text="{x:Bind Data.Commits.ToString(), Mode=OneWay}"/>
                     <TextBlock FontSize="30" Text="commits" Margin="20,0,0,0"/>
                 </StackPanel>
                 <StackPanel RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Commits" Orientation="Horizontal">
-                    <TextBlock Name="CommitsPerSecond" FontSize="30" Text="{x:Bind Data.commitsPerSecond.ToString(), Mode=OneWay}"/>
+                    <TextBlock Name="CommitsPerSecond" FontSize="30" Text="{x:Bind Data.CommitsPerSecond.ToString(), Mode=OneWay}"/>
                     <TextBlock FontSize="30" Text="commits/s" Margin="20,0,0,0"/>
                 </StackPanel>
             </RelativePanel>
             
         </Grid>
 
-        <Frame Name="InnerFrame" Grid.Row="1"  />
-        <Button Name="OptionsButton" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="60" Height="60" Background="White" Click="NavigateButton_Click">
+        <Frame Name="InnerFrame" Grid.Row="1" Margin="20,20,0,20"/>
+        <Button Name="OptionsButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="50" Background="White" Click="NavigateButton_Click">
             <Button.Content>
-                <Image Stretch="Fill" Source="Assets/gear.jpg"/>
+                <Image Stretch="Uniform" Source="Assets/gear.jpg"/>
             </Button.Content>
         </Button>
-        <Button Name="BackButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" FontSize="45" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Click="BackButton_Click"/>
+        <Button Name="BackButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontSize="45" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Click="BackButton_Click"/>
     </Grid>
 </Page>

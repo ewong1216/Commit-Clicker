@@ -12,9 +12,17 @@ namespace IndependentProject
     public class Data : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public int commits { get; set; }
-        public int commitsIncrement { get; set; }
-        public int commitsPerSecond { get; set; }
-        public int specialpoints { get; set; }
+        public int Commits { get; set; }
+        public int CommitsIncrement { get; set; }
+        public int CommitsPerSecond { get; set; }
+        public int Specialpoints { get; set; }
+
+        public List<Helper> Helpers { get; set; } = new List<Helper>();
+
+        public Data()
+        {
+            Helpers.Add(new Helper { Name = "AutoClicker", Description = "Takes some clicks off your fingers", CPS = .1, Level = 0 });
+            Helpers.Add(new Helper { Name = "Monkeys", Description = "Train monkeys to click for you!", CPS = 3, Level = 0});
+        }
     }
 }

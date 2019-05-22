@@ -28,9 +28,9 @@ namespace IndependentProject
         public MainPage()
         {
             this.InitializeComponent();
-            Data.commitsIncrement = 1;
-            Data.commits = 0;
-            Data.commitsPerSecond = 0;
+            Data.CommitsIncrement = 1;
+            Data.Commits = 0;
+            Data.CommitsPerSecond = 0;
             InnerFrame.Navigate(typeof(ButtonPage), Data);
             BackButton.Visibility = Visibility.Collapsed;
         }

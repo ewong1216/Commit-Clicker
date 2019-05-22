@@ -14,8 +14,18 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Grid.Column="0">
-            <!--Grid View here to display all of the helpers--> 
+        <ScrollViewer Grid.Column="0" Margin="20,20,0,0">
+            <GridView ItemsSource="{x:Bind Data.Helpers}">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Helper">
+                        <RelativePanel>
+                            <TextBlock Name="HelperName" Text="{x:Bind Name}"/>
+                            <TextBlock Text="{x:Bind Description}" RelativePanel.Below="HelperName"/>
+                            <Button Name="HireUpgrade" Content="Hire/Upgrade" RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
         </ScrollViewer>
     </Grid>
 </Page>

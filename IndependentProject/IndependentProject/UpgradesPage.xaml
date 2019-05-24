@@ -18,11 +18,15 @@
             <GridView ItemsSource="{x:Bind Data.Helpers}">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="local:Helper">
-                        <RelativePanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
                             <TextBlock Name="HelperName" Text="{x:Bind Name}"/>
-                            <TextBlock Text="{x:Bind Description}" RelativePanel.Below="HelperName"/>
-                            <Button Name="HireUpgrade" Content="Hire/Upgrade" RelativePanel.AlignRightWithPanel="True"/>
-                        </RelativePanel>
+                            <TextBlock Name="Description" Text="{x:Bind Description}" Margin="0,20,0,0"/>
+                            <Button Name="HireUpgrade" Grid.Column="1" HorizontalAlignment="Stretch" Content="Hire/Upgrade" Margin="20,0,0,0"/>
+                        </Grid>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>

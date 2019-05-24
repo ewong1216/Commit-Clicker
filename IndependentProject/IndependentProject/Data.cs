@@ -23,6 +23,7 @@ namespace IndependentProject
         {
             Helpers.Add(new Helper { Name = "AutoClicker", Description = "Takes some clicks off your fingers", CPS = .1, Level = 0 });
             Helpers.Add(new Helper { Name = "Monkeys", Description = "Train monkeys to click for you!", CPS = 3, Level = 0});
+            Helpers.Add(new Helper { Name = "Ethernet", Description = "Connects your device through ethernet to speed up commits", CPS = 10, Level = 0 });
         }
     }
 }

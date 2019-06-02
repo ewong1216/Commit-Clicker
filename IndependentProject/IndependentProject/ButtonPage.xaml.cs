@@ -31,7 +31,7 @@ namespace IndependentProject
 
         private void CommitButton_Click(object sender, RoutedEventArgs e)
         {
-            Data.Commits += Data.CommitsIncrement;
+            Data.Commits += Data.CommitsClickIncrement;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

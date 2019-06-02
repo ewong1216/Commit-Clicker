@@ -34,9 +34,31 @@ namespace IndependentProject
             Data = (Data)e.Parameter;
         }
 
-        private void HireUpgrade_Click(object sender, RoutedEventArgs e)
+        private void HelperUpgrade(Helper helper)
         {
-            
+            if(Data.Commits >= helper.Cost)
+            {
+                Data.Commits -= helper.Cost;
+                helper.CPS = helper.NextCPS;
+                Data.CommitsPerSecond += helper.BaseCPS;
+                helper.NextCPS += helper.BaseCPS;
+                helper.Level++;
+                helper.SetCost(); 
+            }
+        }
+        private void AutoClickerButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelperUpgrade(Data.Helpers.ElementAt(0));
+        }
+
+        private void MonkeysButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelperUpgrade(Data.Helpers.ElementAt(1));
+        }
+
+        private void EthernetButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelperUpgrade(Data.Helpers.ElementAt(2));
         }
     }
 }

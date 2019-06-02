@@ -7,7 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="HireUpgradeButton">
+                <Setter Property="Margin" Value="0,5,0,53"/>
+                <Setter Property="Content" Value="Hire/Upgrade"/>
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
+            <Style TargetType="Rectangle" x:Key="Divider">
+                <Setter Property="Fill" Value="Black"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="Height" Value="3"/>
+                <Setter Property="Margin" Value="0,0,0,5"/>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -15,36 +30,47 @@
         </Grid.ColumnDefinitions>
 
         <ScrollViewer Grid.Column="0" Margin="30,30,0,0">
-            <Grid>
-                <ItemsControl ItemsSource="{x:Bind Data.Helpers}">
+            <Grid Name="HelperDisplay">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ItemsControl ItemsSource="{x:Bind Data.Helpers}" Grid.Column="0">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="local:Helper">
-                            <Grid Margin="0,0,0,10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="5*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock FontSize="20" Text="{x:Bind Name}"/>
-                                <TextBlock FontSize="15" Text="{x:Bind Description}" Grid.Row="1" TextWrapping="Wrap" />
-                                <StackPanel Orientation="Horizontal" Grid.Column="1">
-                                    <TextBlock FontSize="15" Text="Level "/>
-                                    <TextBlock FontSize="15" Text="{x:Bind Level}"/>
+                            <StackPanel Margin="0,0,0,5">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="20" Text="{x:Bind Name}"/>
+                                    <TextBlock FontSize="20" Text="Level:" Margin="10,0,3,0"/>
+                                    <TextBlock FontSize="20" Text="{x:Bind Level}"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                                    <TextBlock FontSize="15" Text="CPS: "/>
+                                <TextBlock FontSize="15" Text="{x:Bind Description}" TextWrapping="NoWrap"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="15" Text="Cost:"/>
+                                    <TextBlock FontSize="15" Text="{x:Bind Cost}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="15" Text="CPS:"/>
                                     <TextBlock FontSize="15" Text="{x:Bind CPS}"/>
+                                    <TextBlock FontSize="15" Text="NextCPS:" Margin="10,0,0,0"/>
+                                    <TextBlock FontSize="15" Text="{x:Bind NextCPS}"/>
                                 </StackPanel>
-                                <Button Name="HireUpgrade" Grid.Column="2" HorizontalAlignment="Right" Content="Hire/Upgrade" Margin="0,0,16,0" Click="HireUpgrade_Click"/>
-                            </Grid>
+                                <Rectangle Style="{StaticResource Divider}" Margin="0"/>
+                            </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                <StackPanel Grid.Column="1">
+                    <Button Name="AutoClickerButton" Style="{StaticResource HireUpgradeButton}" Click="AutoClickerButton_Click"/>
+                    <Rectangle Style="{StaticResource Divider}"/>
+                    <Button Name="MonkeysButton" Style="{StaticResource HireUpgradeButton}" Click="MonkeysButton_Click"/>
+                    <Rectangle Style="{StaticResource Divider}"/>
+                    <Button Name="EthernetButton" Style="{StaticResource HireUpgradeButton}" Click="EthernetButton_Click"/>
+                    <Rectangle Style="{StaticResource Divider}"/>
+                </StackPanel>
+
             </Grid>
         </ScrollViewer>
     </Grid>
 </Page>
+ 

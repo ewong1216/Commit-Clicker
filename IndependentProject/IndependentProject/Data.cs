@@ -14,7 +14,7 @@ namespace IndependentProject
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public int Commits { get; set; }
-        public int CommitsIncrement { get; set; }
+        public int CommitsClickIncrement { get; set; }
         public int CommitsPerSecond { get; set; }
         public int Specialpoints { get; set; }
 
@@ -22,9 +22,9 @@ namespace IndependentProject
 
         public Data()
         {
-            Helpers.Add(new Helper { Name = "AutoClicker", Description = "Takes some clicks off your fingers", CPS = .1, Level = 0 });
-            Helpers.Add(new Helper { Name = "Monkeys", Description = "Train monkeys to click for you!", CPS = 3, Level = 0});
-            Helpers.Add(new Helper { Name = "Ethernet", Description = "Connects your device through ethernet to speed up commits", CPS = 10, Level = 0 });
+            Helpers.Add(new Helper("AutoClicker","Takes some clicks off your fingers",1,10,1));
+            Helpers.Add(new Helper("Monkeys","Train monkeys to click for you!",3,100,10));
+            Helpers.Add(new Helper("Ethernet","Connects your device through ethernet to speed up commits",10,500,30));
         }
     }
 }

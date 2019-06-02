@@ -24,17 +24,24 @@ namespace IndependentProject
     {
 
         public Data Data { get; set; } = new Data();
-
+        private DispatcherTimer timer;
         public MainPage()
         {
             this.InitializeComponent();
-            Data.CommitsIncrement = 1;
+            Data.CommitsClickIncrement = 1;
             Data.Commits = 0;
             Data.CommitsPerSecond = 0;
             InnerFrame.Navigate(typeof(ButtonPage), Data);
             BackButton.Visibility = Visibility.Collapsed;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 1);
+            timer.Tick += DispatcherTimer_Tick;
+            timer.Start();
         }
-
+        private void DispatcherTimer_Tick(object sender, object e)
+        {
+            Data.Commits += Data.CommitsPerSecond;
+        }
         private void NavigateButton_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;

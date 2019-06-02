@@ -13,9 +13,29 @@ namespace IndependentProject
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public double CPS { get; set; }
-        public int Level { get; set; }
+        public int CPS { get; set; } = 0;
+        public int BaseCPS { get; set; }
+        public int NextCPS { get; set; }
+        public int Level { get; set; } = 0;
         public string Name { get; set; }
         public string Description { get; set; }
+        public int Cost { get; set; }
+        public int BaseCost { get; set; }
+        public int ScalingCost { get; set; }
+
+        public void SetCost()
+        {
+            Cost = (Level + 1) * (BaseCost + Level * ScalingCost);
+        }
+        public Helper(string name, string description, int baseCPS, int baseCost, int scalingCost)
+        {
+            Name = name;
+            Description = description;
+            BaseCPS = baseCPS;
+            BaseCost = baseCost;
+            ScalingCost = scalingCost;
+            NextCPS = BaseCPS;
+            SetCost();
+        }
     }
 }

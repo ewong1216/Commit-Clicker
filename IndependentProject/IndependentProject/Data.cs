@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace IndependentProject
         public int CommitsPerSecond { get; set; }
         public int Specialpoints { get; set; }
 
-        public List<Helper> Helpers { get; set; } = new List<Helper>();
+        public ObservableCollection<Helper> Helpers { get; set; } = new ObservableCollection<Helper>();
 
         public Data()
         {

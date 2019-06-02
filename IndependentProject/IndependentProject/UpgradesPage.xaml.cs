@@ -33,5 +33,10 @@ namespace IndependentProject
         {
             Data = (Data)e.Parameter;
         }
+
+        private void HireUpgrade_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

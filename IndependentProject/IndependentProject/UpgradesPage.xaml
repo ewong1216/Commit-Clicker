@@ -14,22 +14,37 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Grid.Column="0" Margin="20,20,0,0">
-            <GridView ItemsSource="{x:Bind Data.Helpers}">
-                <GridView.ItemTemplate>
-                    <DataTemplate x:DataType="local:Helper">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Name="HelperName" Text="{x:Bind Name}"/>
-                            <TextBlock Name="Description" Text="{x:Bind Description}" Margin="0,20,0,0"/>
-                            <Button Name="HireUpgrade" Grid.Column="1" HorizontalAlignment="Stretch" Content="Hire/Upgrade" Margin="20,0,0,0"/>
-                        </Grid>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>
+        <ScrollViewer Grid.Column="0" Margin="30,30,0,0">
+            <Grid>
+                <ItemsControl ItemsSource="{x:Bind Data.Helpers}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="local:Helper">
+                            <Grid Margin="0,0,0,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="20" Text="{x:Bind Name}"/>
+                                <TextBlock FontSize="15" Text="{x:Bind Description}" Grid.Row="1" TextWrapping="Wrap" />
+                                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                                    <TextBlock FontSize="15" Text="Level "/>
+                                    <TextBlock FontSize="15" Text="{x:Bind Level}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                                    <TextBlock FontSize="15" Text="CPS: "/>
+                                    <TextBlock FontSize="15" Text="{x:Bind CPS}"/>
+                                </StackPanel>
+                                <Button Name="HireUpgrade" Grid.Column="2" HorizontalAlignment="Right" Content="Hire/Upgrade" Margin="0,0,16,0" Click="HireUpgrade_Click"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
         </ScrollViewer>
     </Grid>
 </Page>

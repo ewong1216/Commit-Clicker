@@ -22,11 +22,13 @@ namespace IndependentProject
         public ObservableCollection<Helper> Helpers { get; set; } = new ObservableCollection<Helper>();
         public ObservableCollection<Upgrade> Upgrades = new ObservableCollection<Upgrade>();
         public ObservableCollection<Upgrade> PastUpgrades = new ObservableCollection<Upgrade>();
+        public ObservableCollection<Achievement> Achievements = new ObservableCollection<Achievement>();
 
         public Data()
         {
             AddHelpers();
             AddUpgrades();
+            AddAchievements();
         }
         private void AddHelpers()
         {
@@ -40,6 +42,12 @@ namespace IndependentProject
             Upgrades.Add(new Upgrade("/Assets/mouse.png", 300, 0.25, "Even Faster Clicks", "Increases Auto Clicker CPS by 25%", Helpers.ElementAt(0)));
             Upgrades.Add(new Upgrade("/Assets/mouse.png", 1000, 0.5, "Super Fast Clicks", "Increases Auto Clicker CPS by 50%", Helpers.ElementAt(0)));
             Upgrades.Add(new Upgrade("/Assets/mouse.png", 5000, 1.0, "Lightning Fast Clicks", "Increases Auto Clicker CPS by 100%", Helpers.ElementAt(0)));
+        }
+
+        private void AddAchievements()
+        {
+            Achievements.Add(new Achievement("Commit Beginner",10, 1, "Earn 1 commit all time","/Assets/mouse.png"));
+            Achievements.Add(new Achievement("Commit Novice",50, 10, "Earn 10 commits all time","/Assets/mouse.png"));
         }
     }
 }

@@ -89,6 +89,7 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classes\Achievement.cs" />
     <Compile Include="Classes\Upgrade.cs" />
     <Compile Include="Pages\AchievementsPage.xaml.cs">
       <DependentUpon>AchievementsPage.xaml</DependentUpon>

@@ -60,7 +60,7 @@ namespace IndependentProject
             }
             else if(b.Name.Equals("AchievementsButton"))
             {
-                InnerFrame.Navigate(typeof(AchievementsPage));
+                InnerFrame.Navigate(typeof(AchievementsPage), Data);
             }
             else if (b.Name.Equals("OptionsButton"))
             {

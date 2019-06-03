@@ -11,7 +11,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <Style TargetType="Button" x:Key="HireUpgradeButton">
-                <Setter Property="Margin" Value="0,5,0,53"/>
+                <Setter Property="Margin" Value="0,5,0,54"/>
                 <Setter Property="Content" Value="Hire/Level-Up"/>
                 <Setter Property="FontSize" Value="12"/>
             </Style>

@@ -22,9 +22,17 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class AchievementsPage : Page
     {
+
+        Data Data;
+
         public AchievementsPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Data = (Data)e.Parameter;
         }
     }
 }

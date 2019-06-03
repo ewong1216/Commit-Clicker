@@ -29,7 +29,7 @@ namespace IndependentProject
         {
             this.InitializeComponent();
             Data.CommitsClickIncrement = 1;
-            Data.Commits = 0;
+            Data.Commits = 1000000;
             Data.CommitsPerSecond = 0;
             InnerFrame.Navigate(typeof(ButtonPage), Data);
             BackButton.Visibility = Visibility.Collapsed;

@@ -5,13 +5,14 @@
     xmlns:local="using:IndependentProject"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local1="using:IndependentProject.Classes"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <ResourceDictionary>
             <Style TargetType="Button" x:Key="HireUpgradeButton">
                 <Setter Property="Margin" Value="0,5,0,53"/>
-                <Setter Property="Content" Value="Hire/Upgrade"/>
+                <Setter Property="Content" Value="Hire/Level-Up"/>
                 <Setter Property="FontSize" Value="12"/>
             </Style>
             <Style TargetType="Rectangle" x:Key="Divider">
@@ -22,13 +23,13 @@
             </Style>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+        <TextBlock Text="Helpers" FontSize="25" Margin="30,0,0,0"/>
         <ScrollViewer Grid.Column="0" Margin="30,30,0,0">
             <Grid Name="HelperDisplay">
                 <Grid.ColumnDefinitions>
@@ -52,7 +53,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontSize="15" Text="CPS:"/>
                                     <TextBlock FontSize="15" Text="{x:Bind CPS}"/>
-                                    <TextBlock FontSize="15" Text="NextCPS:" Margin="10,0,0,0"/>
+                                    <TextBlock FontSize="15" Text="Next CPS:" Margin="10,0,0,0"/>
                                     <TextBlock FontSize="15" Text="{x:Bind NextCPS}"/>
                                 </StackPanel>
                                 <Rectangle Style="{StaticResource Divider}" Margin="0"/>
@@ -68,9 +69,40 @@
                     <Button Name="EthernetButton" Style="{StaticResource HireUpgradeButton}" Click="EthernetButton_Click"/>
                     <Rectangle Style="{StaticResource Divider}"/>
                 </StackPanel>
-
             </Grid>
         </ScrollViewer>
+        <Rectangle Fill="Black" Width="5" VerticalAlignment="Stretch" HorizontalAlignment="Left" Grid.Column="1"/>
+        <Grid Grid.Column="1" Margin="7,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Upgrades" FontSize="22"/>
+            <Rectangle Style="{StaticResource Divider}" VerticalAlignment="Top" Margin="0,30,0,0"/>
+            <ScrollViewer Margin="0,40,0,0">
+                <GridView ItemsSource="{x:Bind Data.Upgrades}">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="local1:Upgrade">
+                            <Button Height="50" Width="50" Margin="18" Background="White" Click="Upgrade_Click" ToolTipService.ToolTip="{x:Bind ToString()}">
+                                <Image Source="{x:Bind Image}" Stretch="Uniform"/>
+                            </Button>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </ScrollViewer>
+            <TextBlock Text="Past Upgrades" FontSize="22" Grid.Row="1"/>
+            <Rectangle Grid.Row="1" Style="{StaticResource Divider}" VerticalAlignment="Top" Margin="0,30,0,0"/>
+            <ScrollViewer Grid.Row="1" Margin="0,25,0,0">
+                <GridView ItemsSource="{x:Bind Data.PastUpgrades}">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="local1:Upgrade">
+                            <Button Height="50" Width="50" Margin="18" Background="White" ToolTipService.ToolTip="{x:Bind ToString()}">
+                                <Image Source="{x:Bind Image}" Stretch="Uniform" Opacity="50"/>
+                            </Button>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </ScrollViewer>
+        </Grid>
     </Grid>
-</Page>
- 
+</Page> 

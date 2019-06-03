@@ -1,5 +1,7 @@
-﻿using System;
+﻿using IndependentProject.Classes;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -31,7 +33,7 @@ namespace IndependentProject
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Data = (Data)e.Parameter;
+            Data = (Data)e.Parameter;       
         }
 
         private void HelperUpgrade(Helper helper)
@@ -39,11 +41,9 @@ namespace IndependentProject
             if(Data.Commits >= helper.Cost)
             {
                 Data.Commits -= helper.Cost;
-                helper.CPS = helper.NextCPS;
-                Data.CommitsPerSecond += helper.BaseCPS;
-                helper.NextCPS += helper.BaseCPS;
-                helper.Level++;
-                helper.SetCost(); 
+                Data.CommitsPerSecond -= helper.CPS;
+                helper.LevelUp();
+                Data.CommitsPerSecond += helper.CPS;
             }
         }
         private void AutoClickerButton_Click(object sender, RoutedEventArgs e)
@@ -59,6 +59,27 @@ namespace IndependentProject
         private void EthernetButton_Click(object sender, RoutedEventArgs e)
         {
             HelperUpgrade(Data.Helpers.ElementAt(2));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Visibility = Visibility.Collapsed;
+        }
+
+        private void Upgrade_Click(object sender, RoutedEventArgs e)
+        {
+            Upgrade u = ((FrameworkElement)sender).DataContext as Upgrade;
+            if(u.Cost <= Data.Commits)
+            {
+                u.Helper.Multiplier += u.Multiplier;
+                Data.Commits -= u.Cost;
+                Data.Upgrades.Remove(u);
+                Data.PastUpgrades.Add(u);
+                Data.CommitsPerSecond -= u.Helper.CPS;
+                u.Helper.SetMultiplier();
+                Data.CommitsPerSecond += u.Helper.CPS;
+            }
         }
     }
 }

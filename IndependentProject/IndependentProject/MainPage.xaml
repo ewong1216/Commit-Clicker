@@ -50,7 +50,7 @@
             
         </Grid>
 
-        <Frame Name="InnerFrame" Grid.Row="1" Margin="20,20,0,20"/>
+        <Frame Name="InnerFrame" Grid.Row="1"/>
         <Button Name="OptionsButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="50" Background="White" Click="NavigateButton_Click">
             <Button.Content>
                 <Image Stretch="Uniform" Source="Assets/gear.jpg"/>

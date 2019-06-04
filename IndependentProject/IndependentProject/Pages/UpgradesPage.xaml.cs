@@ -36,31 +36,6 @@ namespace IndependentProject
             Data = (Data)e.Parameter;       
         }
 
-        private void HelperUpgrade(Helper helper)
-        {
-            if(Data.Commits >= helper.Cost)
-            {
-                Data.Commits -= helper.Cost;
-                Data.CommitsPerSecond -= helper.CPS;
-                helper.LevelUp();
-                Data.CommitsPerSecond += helper.CPS;
-            }
-        }
-        private void AutoClickerButton_Click(object sender, RoutedEventArgs e)
-        {
-            HelperUpgrade(Data.Helpers.ElementAt(0));
-        }
-
-        private void MonkeysButton_Click(object sender, RoutedEventArgs e)
-        {
-            HelperUpgrade(Data.Helpers.ElementAt(1));
-        }
-
-        private void EthernetButton_Click(object sender, RoutedEventArgs e)
-        {
-            HelperUpgrade(Data.Helpers.ElementAt(2));
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
@@ -79,6 +54,18 @@ namespace IndependentProject
                 Data.CommitsPerSecond -= u.Helper.CPS;
                 u.Helper.SetMultiplier();
                 Data.CommitsPerSecond += u.Helper.CPS;
+            }
+        }
+
+        private void HireUpgrade_Click(object sender, RoutedEventArgs e)
+        {
+            Helper helper = ((FrameworkElement)sender).DataContext as Helper;
+            if (Data.Commits >= helper.Cost)
+            {
+                Data.Commits -= helper.Cost;
+                Data.CommitsPerSecond -= helper.CPS;
+                helper.LevelUp();
+                Data.CommitsPerSecond += helper.CPS;
             }
         }
     }

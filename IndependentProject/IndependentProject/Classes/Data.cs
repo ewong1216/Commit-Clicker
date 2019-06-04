@@ -18,6 +18,7 @@ namespace IndependentProject
         public int CommitsClickIncrement { get; set; }
         public int CommitsPerSecond { get; set; }
         public int Specialpoints { get; set; }
+        public int AllTimeCommits { get; set; } = 0;
 
         public ObservableCollection<Helper> Helpers { get; set; } = new ObservableCollection<Helper>();
         public ObservableCollection<Upgrade> Upgrades = new ObservableCollection<Upgrade>();
@@ -29,6 +30,14 @@ namespace IndependentProject
             AddHelpers();
             AddUpgrades();
             AddAchievements();
+        }
+        public void CheckAchievements()
+        {
+            foreach(Achievement a in Achievements)
+            {
+                //Check if achievement is achieved; need a field of the thing that the achievement tracks, ie. AllTimeCommits
+                //If the tracking value reaches the requirement field, then the achievement is achieved. 
+            }
         }
         private void AddHelpers()
         {

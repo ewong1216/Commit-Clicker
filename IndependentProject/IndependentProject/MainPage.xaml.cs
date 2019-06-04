@@ -41,6 +41,7 @@ namespace IndependentProject
         private void DispatcherTimer_Tick(object sender, object e)
         {
             Data.Commits += Data.CommitsPerSecond;
+            Data.CheckAchievements();
         }
         private void NavigateButton_Click(object sender, RoutedEventArgs e)
         {

@@ -28,6 +28,7 @@ namespace IndependentProject.Classes
             Description = description;
             Image = image;
         }
+        
 
         public override string ToString()
         {

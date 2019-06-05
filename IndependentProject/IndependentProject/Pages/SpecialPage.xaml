@@ -5,10 +5,25 @@
     xmlns:local="using:IndependentProject"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:IndependentProject.Classes"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock Text="DummySpecial"/>
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="Specials" FontSize="25" Margin="50,12,0,0"/>
+        <Rectangle HorizontalAlignment="Stretch" Height="5" Fill="Black"/>
+        <ScrollViewer Margin="30,20,0,0">
+            <GridView ItemsSource="{x:Bind Data.Specials}">
+                <GridView.ItemTemplate>
+                    <DataTemplate >
+                        <!--
+                        <Button Height="50" Width="50" Margin="30" ToolTipService.ToolTip="{x:Bind Description}" Background="White">
+                            <Image Source="{x:Bind Image}" Stretch="Uniform"/>
+                        </Button>
+                        -->
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </ScrollViewer>
+    </StackPanel>
 </Page>

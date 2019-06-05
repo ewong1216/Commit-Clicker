@@ -24,6 +24,7 @@ namespace IndependentProject
         public ObservableCollection<Upgrade> Upgrades = new ObservableCollection<Upgrade>();
         public ObservableCollection<Upgrade> PastUpgrades = new ObservableCollection<Upgrade>();
         public ObservableCollection<Achievement> Achievements = new ObservableCollection<Achievement>();
+        public ObservableCollection<Special> Specials { get; set; } = new ObservableCollection<Special>();
 
         public Data()
         {

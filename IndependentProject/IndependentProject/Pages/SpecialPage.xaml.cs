@@ -22,9 +22,17 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class SpecialPage : Page
     {
+
+        Data Data;
+
         public SpecialPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Data = (Data)e.Parameter;
         }
     }
 }

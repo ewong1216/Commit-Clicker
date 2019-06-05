@@ -37,17 +37,21 @@
             <Button Name="SpecialButton" Content="Special" Grid.Row="1" Grid.Column="0" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="CustomizeButton" Content="Customize" Grid.Row="0" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="AchievementsButton" Content="Achievements" Grid.Row="1" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
-            <RelativePanel Grid.Row="0" Grid.Column="1">
-                <StackPanel Name="Commits" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal" Margin="0,20,0,5">
-                    <TextBlock Name="TotalCommits" FontSize="20" Text="{x:Bind Data.Commits, Mode=TwoWay}"/>
+            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,5">
+                    <TextBlock FontSize="20" Text="{x:Bind Data.Commits, Mode=TwoWay}"/>
                     <TextBlock FontSize="20" Text="commits" Margin="20,0,0,0"/>
                 </StackPanel>
-                <StackPanel RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Commits" Orientation="Horizontal">
-                    <TextBlock Name="CommitsPerSecond" FontSize="20" Text="{x:Bind Data.CommitsPerSecond, Mode=TwoWay}"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="20" Text="{x:Bind Data.CommitsPerSecond, Mode=TwoWay}"/>
                     <TextBlock FontSize="20" Text="commits/s" Margin="20,0,0,0"/>
                 </StackPanel>
-            </RelativePanel>
-            
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="20" Text="{x:Bind Data.Specialpoints, Mode=TwoWay}"/>
+                <TextBlock FontSize="20" Text="Special Points" Margin="20,0,0,0"/>
+            </StackPanel>
         </Grid>
 
         <Frame Name="InnerFrame" Grid.Row="1"/>

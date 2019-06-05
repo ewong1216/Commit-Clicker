@@ -128,6 +128,7 @@
   <ItemGroup>
     <Content Include="Assets\gear.jpg" />
     <Content Include="Assets\mouse.png" />
+    <Content Include="Assets\questionmark.png" />
     <Content Include="FodyWeavers.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

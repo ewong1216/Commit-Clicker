@@ -18,25 +18,52 @@ namespace IndependentProject.Classes
         public int Requirement { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string DisplayImage { get; set; } = "/Assets/questionmark.png";
         public string Image { get; set; }
+        public int Type { get; set; } //Type: 0=AllTimeCommit achievement, 1=HelperLevelAchievement
+        public Data Data { get; set; }
+        public Helper Helper { get; set; }
 
-        public Achievement(string name, int sp, int requirement, string description, string image)
+        public Achievement(string name, int sp, int requirement, string description, string image, int type, Data data, Helper helper)
         {
             Name = name;
             SP = sp;
             Requirement = requirement;
             Description = description;
             Image = image;
+            Type = type;
+            Data = data;
+            Helper = helper;
         }
-        
 
+        public bool Update()
+        {
+            if(Type == 0 && Data.AllTimeCommits >= Requirement)
+            {
+                Achieve();
+                return true;
+            }
+            else if(Type == 1 && Helper.Level >= Requirement)
+            {
+                Achieve();
+                return true;
+            }
+            return false;
+        }
+
+        private void Achieve()
+        {
+            Unlocked = true;
+            DisplayImage = Image;
+            Data.Specialpoints += SP;
+        }
         public override string ToString()
         {
-            string s = Name + "\n" + Description;
+            string s = "???";
 
             if (Unlocked)
             {
-                s += "\nReward: " + SP + " SP";
+                s = Name + "\n" + Description + "\nReward: " + SP + " SP";
             }
 
             return s;

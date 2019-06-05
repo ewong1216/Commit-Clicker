@@ -35,8 +35,10 @@ namespace IndependentProject
         {
             foreach(Achievement a in Achievements)
             {
-                //Check if achievement is achieved; need a field of the thing that the achievement tracks, ie. AllTimeCommits
-                //If the tracking value reaches the requirement field, then the achievement is achieved. 
+                if (!a.Unlocked)
+                {
+                    a.Update();
+                }
             }
         }
         private void AddHelpers()
@@ -55,8 +57,9 @@ namespace IndependentProject
 
         private void AddAchievements()
         {
-            Achievements.Add(new Achievement("Commit Beginner",10, 1, "Earn 1 commit all time","/Assets/mouse.png"));
-            Achievements.Add(new Achievement("Commit Novice",50, 10, "Earn 10 commits all time","/Assets/mouse.png"));
+            Achievements.Add(new Achievement("Commit Beginner",10, 1, "Earn 1 commit all time","/Assets/mouse.png",0,this,null));
+            Achievements.Add(new Achievement("Commit Novice",50, 50, "Earn 50 commits all time","/Assets/mouse.png",0,this,null));
+            Achievements.Add(new Achievement("AutoClicker Beginner", 10, 1, "Reach AutoClicker Level 1", "/Assets/mouse.png", 1, this, Helpers.ElementAt(0)));
         }
     }
 }

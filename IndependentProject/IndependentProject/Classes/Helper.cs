@@ -26,7 +26,7 @@ namespace IndependentProject
 
         public void SetCost()
         {
-            Cost = (Level + 1) * (BaseCost + Level * ScalingCost);
+            Cost = BaseCost + Level * (ScalingCost + (Level - 1));
         }
         public void SetMultiplier()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IndependentProject.Classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -33,6 +34,16 @@ namespace IndependentProject
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Data = (Data)e.Parameter;
+        }
+
+        private void SpecialUpgrade_Click(object sender, RoutedEventArgs e)
+        {
+            Special s = ((FrameworkElement)sender).DataContext as Special;
+            if(Data.Specialpoints >= s.Cost)
+            {
+                Data.Specialpoints -= s.Cost;
+                s.Purchase();
+            }
         }
     }
 }

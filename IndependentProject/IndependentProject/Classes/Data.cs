@@ -17,7 +17,7 @@ namespace IndependentProject
         public int Commits { get; set; }
         public int CommitsClickIncrement { get; set; }
         public int CommitsPerSecond { get; set; }
-        public int Specialpoints { get; set; }
+        public int Specialpoints { get; set; } = 99999;
         public int AllTimeCommits { get; set; } = 0;
 
         public ObservableCollection<Helper> Helpers { get; set; } = new ObservableCollection<Helper>();
@@ -25,12 +25,13 @@ namespace IndependentProject
         public ObservableCollection<Upgrade> PastUpgrades = new ObservableCollection<Upgrade>();
         public ObservableCollection<Achievement> Achievements = new ObservableCollection<Achievement>();
         public ObservableCollection<Special> Specials { get; set; } = new ObservableCollection<Special>();
-
+        
         public Data()
         {
             AddHelpers();
             AddUpgrades();
             AddAchievements();
+            AddSpecials();
         }
         public void CheckAchievements()
         {
@@ -45,8 +46,8 @@ namespace IndependentProject
         private void AddHelpers()
         {
             Helpers.Add(new Helper("AutoClicker", "Takes some clicks off your fingers", 1, 10, 1));
-            Helpers.Add(new Helper("Monkeys", "Train monkeys to click for you!", 3, 100, 10));
-            Helpers.Add(new Helper("Ethernet", "Connects your device through ethernet to speed up commits", 10, 500, 30));
+            Helpers.Add(new Helper("Monkeys", "Train monkeys to click for you!", 15, 100, 10));
+            Helpers.Add(new Helper("Ethernet", "Connects your device through ethernet to speed up commits", 100, 500, 30));
         }
         private void AddUpgrades()
         {
@@ -61,6 +62,11 @@ namespace IndependentProject
             Achievements.Add(new Achievement("Commit Beginner",10, 1, "Earn 1 commit all time","/Assets/mouse.png",0,this,null));
             Achievements.Add(new Achievement("Commit Novice",50, 50, "Earn 50 commits all time","/Assets/mouse.png",0,this,null));
             Achievements.Add(new Achievement("AutoClicker Beginner", 10, 1, "Reach AutoClicker Level 1", "/Assets/mouse.png", 1, this, Helpers.ElementAt(0)));
+        }
+
+        private void AddSpecials()
+        {
+            Specials.Add(new Special("Cheaper Contracts", "Reduces hire & upgrade cost by 5%", "/Assets/mouse.png",100));
         }
     }
 }

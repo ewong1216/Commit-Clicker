@@ -40,11 +40,11 @@
             <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal" Margin="0,20,0,5">
                     <TextBlock FontSize="20" Text="{x:Bind Data.Commits, Mode=TwoWay}"/>
-                    <TextBlock FontSize="20" Text="commits" Margin="20,0,0,0"/>
+                    <TextBlock FontSize="20" Text="Commits" Margin="20,0,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontSize="20" Text="{x:Bind Data.CommitsPerSecond, Mode=TwoWay}"/>
-                    <TextBlock FontSize="20" Text="commits/s" Margin="20,0,0,0"/>
+                    <TextBlock FontSize="20" Text="Commits/s" Margin="20,0,0,0"/>
                 </StackPanel>
             </StackPanel>
 

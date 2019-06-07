@@ -25,7 +25,7 @@ namespace IndependentProject.Classes
             Description = description;
             Image = image;
             Cost = cost;
-            Multiplier = 1.0;
+            Multiplier = 0.0;
         }
         public void Purchase()
         {
@@ -34,7 +34,7 @@ namespace IndependentProject.Classes
         }
         public override string ToString()
         {
-            string s = Name + "\n" + Description + "\nCost: " + Cost + "SP" + "\nCurrent Multiplier: " + Multiplier*100 + "%";
+            string s = Name + "\n" + Description + "\nCost: " + Cost + "SP" + "\nCurrent Bonus: " + Multiplier * 100 + "%\n" + "Next Bonus: " + (Multiplier + 0.05) * 100 + "%";
             return s;
         }
     }

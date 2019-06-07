@@ -66,7 +66,8 @@ namespace IndependentProject
 
         private void AddSpecials()
         {
-            Specials.Add(new Special("Cheaper Contracts", "Reduces hire & upgrade cost by 5%", "/Assets/mouse.png",100));
+            Specials.Add(new Special("Better Bargaining", "Reduces helper hire & level-up cost", "/Assets/mouse.png",100));
+            Specials.Add(new Special("Cheaper Upgrades", "Reduces upgrades cost", "/Assets/mouse.png", 150));
         }
     }
 }

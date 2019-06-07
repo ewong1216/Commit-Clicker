@@ -25,6 +25,7 @@ namespace IndependentProject
 
         public Data Data { get; set; } = new Data();
         private DispatcherTimer timer;
+
         public MainPage()
         {
             this.InitializeComponent();

@@ -33,7 +33,15 @@ namespace IndependentProject
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Data = (Data)e.Parameter;       
+            Data = (Data)e.Parameter;      
+            foreach(Helper h in Data.Helpers)
+            {
+                h.SetCost(1.0 - Data.Specials.ElementAt(0).Multiplier);
+            }
+            foreach(Upgrade u in Data.Upgrades)
+            {
+                u.Cost = (int) (u.Cost * (1.0 - Data.Specials.ElementAt(1).Multiplier));
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -64,7 +72,7 @@ namespace IndependentProject
             {
                 Data.Commits -= helper.Cost;
                 Data.CommitsPerSecond -= helper.CPS;
-                helper.LevelUp();
+                helper.LevelUp(1.0 - Data.Specials.ElementAt(0).Multiplier);
                 Data.CommitsPerSecond += helper.CPS;
             }
         }

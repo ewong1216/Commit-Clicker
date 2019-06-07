@@ -24,20 +24,20 @@ namespace IndependentProject
         public int ScalingCost { get; set; }
         public double Multiplier { get; set; } = 1.0;
 
-        public void SetCost()
+        public void SetCost(double costMultiplier)
         {
-            Cost = BaseCost + Level * (ScalingCost + (Level - 1));
+            Cost = (int) ((BaseCost + Level * (ScalingCost + (Level - 1))) * costMultiplier);
         }
         public void SetMultiplier()
         {
             CPS = (int)(Level * BaseCPS * Multiplier);
             NextCPS = (int)((Level+1) * BaseCPS * Multiplier);
         }
-        public void LevelUp()
+        public void LevelUp(double costMultiplier)
         {
             Level++;
             SetMultiplier();
-            SetCost();
+            SetCost(costMultiplier);
         }
         public Helper(string name, string description, int baseCPS, int baseCost, int scalingCost)
         {
@@ -47,7 +47,7 @@ namespace IndependentProject
             BaseCost = baseCost;
             ScalingCost = scalingCost;
             NextCPS = BaseCPS;
-            SetCost();
+            SetCost(1.0);
         }
     }
 }

@@ -9,6 +9,20 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="DummyOptions"/>
+        <TextBlock Text="Options" FontSize="25" Margin="50,20,0,0"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Stretch" Height="5" VerticalAlignment="Top" Margin="0,50,0,0"/>
+        <StackPanel Margin="50,85,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Music Volume:" FontSize="23" Margin="0,0,20,0"/>
+                <Slider Name="MusicSlider" Minimum="0" Maximum="100" Width="500" Value="50" ValueChanged="MusicSlider_ValueChanged"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="0,30,0,30">
+                <TextBlock Text="Sound Volume:" FontSize="23" Margin="0,0,20,0"/>
+                <Slider Name="SoundSlider" Minimum="0" Maximum="100" Width="500" Value="50" ValueChanged="SoundSlider_ValueChanged"/>
+            </StackPanel>
+
+            <Button Background="Black" Foreground="White" Content="Restore To Default" Click="RestoreToDefault_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

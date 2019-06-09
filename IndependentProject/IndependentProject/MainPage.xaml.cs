@@ -44,9 +44,12 @@ namespace IndependentProject
             Data.Commits += Data.CommitsPerSecond;
             Data.AllTimeCommits += Data.CommitsPerSecond;
             Data.CheckAchievements();
+            Player.Volume = Data.MusicVolume;
+            ClickSound.Volume = Data.SoundVolume;
         }
         private void NavigateButton_Click(object sender, RoutedEventArgs e)
         {
+            ClickSound.Play();
             Button b = (Button)sender;
             OptionsButton.Visibility = Visibility.Visible;
             if (b.Name.Equals("UpgradesButton"))
@@ -59,7 +62,7 @@ namespace IndependentProject
             }
             else if (b.Name.Equals("CustomizeButton"))
             {
-                InnerFrame.Navigate(typeof(CustomizePage));
+                InnerFrame.Navigate(typeof(CustomizePage), Data);
             }
             else if(b.Name.Equals("AchievementsButton"))
             {
@@ -67,7 +70,7 @@ namespace IndependentProject
             }
             else if (b.Name.Equals("OptionsButton"))
             {
-                InnerFrame.Navigate(typeof(OptionsPage));
+                InnerFrame.Navigate(typeof(OptionsPage), Data);
                 OptionsButton.Visibility = Visibility.Collapsed;
             }
             BackButton.Visibility = Visibility.Visible;
@@ -75,6 +78,7 @@ namespace IndependentProject
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            ClickSound.Play();
             InnerFrame.Navigate(typeof(ButtonPage), Data);
             BackButton.Visibility = Visibility.Collapsed;
             OptionsButton.Visibility = Visibility.Visible;

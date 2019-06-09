@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IndependentProject.Classes;
 using PropertyChanged;
+using Windows.UI.Xaml.Controls;
 
 namespace IndependentProject
 {
@@ -20,12 +21,15 @@ namespace IndependentProject
         public int Specialpoints { get; set; } = 99999;
         public int AllTimeCommits { get; set; } = 0;
 
+        public double MusicVolume { get; set; } = 0.5;
+        public double SoundVolume { get; set; } = 0.5;
+
         public ObservableCollection<Helper> Helpers { get; set; } = new ObservableCollection<Helper>();
         public ObservableCollection<Upgrade> Upgrades = new ObservableCollection<Upgrade>();
         public ObservableCollection<Upgrade> PastUpgrades = new ObservableCollection<Upgrade>();
         public ObservableCollection<Achievement> Achievements = new ObservableCollection<Achievement>();
         public ObservableCollection<Special> Specials { get; set; } = new ObservableCollection<Special>();
-        
+
         public Data()
         {
             AddHelpers();
@@ -46,8 +50,8 @@ namespace IndependentProject
         private void AddHelpers()
         {
             Helpers.Add(new Helper("AutoClicker", "Takes some clicks off your fingers", 1, 10, 1));
-            Helpers.Add(new Helper("Monkeys", "Train monkeys to click for you!", 15, 100, 10));
-            Helpers.Add(new Helper("Ethernet", "Connects your device through ethernet to speed up commits", 100, 500, 30));
+            Helpers.Add(new Helper("Monkeys", "Train monkeys to click for you!", 15, 100, 90));
+            Helpers.Add(new Helper("Ethernet", "Connects your device through ethernet to speed up commits", 100, 5000, 1200));
         }
         private void AddUpgrades()
         {

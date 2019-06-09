@@ -127,10 +127,15 @@
     <None Include="IndependentProject_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\background.png" />
     <Content Include="Assets\gear.jpg" />
     <Content Include="Assets\mouse.png" />
     <Content Include="Assets\questionmark.png" />
+    <Content Include="clicksound.wav" />
     <Content Include="FodyWeavers.xml" />
+    <Content Include="lostandforgotten.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

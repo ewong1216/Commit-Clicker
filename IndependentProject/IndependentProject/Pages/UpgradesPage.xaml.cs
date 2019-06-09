@@ -60,7 +60,7 @@ namespace IndependentProject
                 Data.Upgrades.Remove(u);
                 Data.PastUpgrades.Add(u);
                 Data.CommitsPerSecond -= u.Helper.CPS;
-                u.Helper.SetMultiplier();
+                u.Helper.SetCPS();
                 Data.CommitsPerSecond += u.Helper.CPS;
             }
         }

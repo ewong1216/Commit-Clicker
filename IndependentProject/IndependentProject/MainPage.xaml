@@ -12,11 +12,18 @@
                 <Setter Property="HorizontalAlignment" Value="Stretch"/>
                 <Setter Property="VerticalAlignment" Value="Stretch"/>
                 <Setter Property="Margin" Value="20,20,20,20"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="Black"/>
             </Style>
         </ResourceDictionary>
     </Page.Resources>
     
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/background.png" Opacity=".4"/>
+        </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
@@ -30,9 +37,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
+            <MediaElement Name="Player" AutoPlay="True" Source="/lostandforgotten.wav" IsLooping="True"/>
+            <MediaElement Name="ClickSound" Source="clicksound.wav"/>
             <Button Name="UpgradesButton" Content="Upgrades" Grid.Row="0" Grid.Column="0" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="SpecialButton" Content="Special" Grid.Row="1" Grid.Column="0" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="CustomizeButton" Content="Customize" Grid.Row="0" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
@@ -55,11 +62,11 @@
         </Grid>
 
         <Frame Name="InnerFrame" Grid.Row="1"/>
-        <Button Name="OptionsButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="50" Background="White" Click="NavigateButton_Click">
+        <Button Name="OptionsButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="50" Background="Black" Click="NavigateButton_Click">
             <Button.Content>
                 <Image Stretch="Uniform" Source="Assets/gear.jpg"/>
             </Button.Content>
         </Button>
-        <Button Name="BackButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontSize="35" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Click="BackButton_Click"/>
+        <Button Name="BackButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" FontSize="35" Foreground="White" Background="Black" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Click="BackButton_Click"/>
     </Grid>
 </Page>

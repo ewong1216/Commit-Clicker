@@ -11,6 +11,9 @@
             <Style TargetType="Button" x:Key="NavigationButton">
                 <Setter Property="HorizontalAlignment" Value="Stretch"/>
                 <Setter Property="VerticalAlignment" Value="Stretch"/>
+                <Setter Property="MinWidth" Value="80"/>
+                <Setter Property="MaxWidth" Value="360"/>
+                <Setter Property="MinHeight" Value="30"/>
                 <Setter Property="Margin" Value="20,20,20,20"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="Background" Value="Black"/>
@@ -21,7 +24,7 @@
     <Grid>
         
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/background.png" Opacity=".4"/>
+            <ImageBrush ImageSource="/Assets/background.png" Opacity=".5"/>
         </Grid.Background>
         
         <Grid.RowDefinitions>
@@ -31,7 +34,7 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -42,7 +45,7 @@
             <MediaElement Name="ClickSound" Source="clicksound.wav"/>
             <Button Name="UpgradesButton" Content="Upgrades" Grid.Row="0" Grid.Column="0" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="SpecialButton" Content="Special" Grid.Row="1" Grid.Column="0" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
-            <Button Name="CustomizeButton" Content="Customize" Grid.Row="0" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
+            <Button Name="StatsButton" Content="Stats" Grid.Row="0" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <Button Name="AchievementsButton" Content="Achievements" Grid.Row="1" Grid.Column="2" Click="NavigateButton_Click" Style="{StaticResource NavigationButton}"/>
             <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal" Margin="0,20,0,5">
@@ -59,8 +62,17 @@
                 <TextBlock FontSize="20" Text="{x:Bind Data.Specialpoints, Mode=TwoWay}"/>
                 <TextBlock FontSize="20" Text="Special Points" Margin="20,0,0,0"/>
             </StackPanel>
-        </Grid>
 
+        </Grid>
+        <Popup Name="Popup" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,200,0">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="0,0,10,0">
+                    <TextBlock Text="Achievement Unlocked!" FontSize="17"/>
+                    <TextBlock Name="PopupText" FontSize="15"/>
+                </StackPanel>
+                <Button Content="Close" Height="35" Width="55" FontSize="13" Background="Black" Foreground="White" Click="PopupButton_Click"/>
+            </StackPanel>
+        </Popup>
         <Frame Name="InnerFrame" Grid.Row="1"/>
         <Button Name="OptionsButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="50" Background="Black" Click="NavigateButton_Click">
             <Button.Content>

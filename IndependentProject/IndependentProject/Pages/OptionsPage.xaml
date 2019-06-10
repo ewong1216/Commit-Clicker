@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <MediaElement Name="ClickSound" Source="clicksound.wav"/>
         <TextBlock Text="Options" FontSize="25" Margin="50,20,0,0"/>
         <Rectangle Fill="Black" HorizontalAlignment="Stretch" Height="5" VerticalAlignment="Top" Margin="0,50,0,0"/>
         <StackPanel Margin="50,85,0,0">

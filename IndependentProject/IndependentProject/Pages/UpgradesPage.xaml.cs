@@ -44,14 +44,10 @@ namespace IndependentProject
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button b = (Button)sender;
-            b.Visibility = Visibility.Collapsed;
-        }
-
         private void Upgrade_Click(object sender, RoutedEventArgs e)
         {
+            ClickSound.Play();
+            Data.Clicks++;
             Upgrade u = ((FrameworkElement)sender).DataContext as Upgrade;
             if(u.Cost <= Data.Commits)
             {
@@ -67,6 +63,8 @@ namespace IndependentProject
 
         private void HireUpgrade_Click(object sender, RoutedEventArgs e)
         {
+            ClickSound.Play();
+            Data.Clicks++;
             Helper helper = ((FrameworkElement)sender).DataContext as Helper;
             if (Data.Commits >= helper.Cost)
             {

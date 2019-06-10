@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IndependentProject.Classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,8 +31,9 @@ namespace IndependentProject
         {
             this.InitializeComponent();
             Data.CommitsClickIncrement = 1;
-            Data.Commits = 1000000;
-            Data.CommitsPerSecond = 0; 
+            Data.Commits = 99999999999;
+            Data.CommitsPerSecond = 0;
+            Data.Specialpoints = 0;
             InnerFrame.Navigate(typeof(ButtonPage), Data);
             BackButton.Visibility = Visibility.Collapsed;
             timer = new DispatcherTimer();
@@ -43,13 +45,29 @@ namespace IndependentProject
         {
             Data.Commits += Data.CommitsPerSecond;
             Data.AllTimeCommits += Data.CommitsPerSecond;
-            Data.CheckAchievements();
+            foreach (Achievement a in Data.Achievements)
+            {
+                if (!a.Unlocked)
+                {
+                    if (a.Update())
+                    {
+                        Data.AchievementsUnlocked++;
+                        PopupText.Text = a.Name;
+                        Popup.IsOpen = true;
+                    }
+                }
+            }
+            Data.Seconds+=10000000;
             Player.Volume = Data.MusicVolume;
             ClickSound.Volume = Data.SoundVolume;
         }
+        private void PopupButton_Click(object sender, RoutedEventArgs e)
+        {
+            Popup.IsOpen = false;
+        }
         private void NavigateButton_Click(object sender, RoutedEventArgs e)
         {
-            ClickSound.Play();
+            Click();
             Button b = (Button)sender;
             OptionsButton.Visibility = Visibility.Visible;
             if (b.Name.Equals("UpgradesButton"))
@@ -60,9 +78,9 @@ namespace IndependentProject
             {
                 InnerFrame.Navigate(typeof(SpecialPage), Data);
             }
-            else if (b.Name.Equals("CustomizeButton"))
+            else if (b.Name.Equals("StatsButton"))
             {
-                InnerFrame.Navigate(typeof(CustomizePage), Data);
+                InnerFrame.Navigate(typeof(StatsPage), Data);
             }
             else if(b.Name.Equals("AchievementsButton"))
             {
@@ -78,10 +96,16 @@ namespace IndependentProject
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            ClickSound.Play();
+            Click();
             InnerFrame.Navigate(typeof(ButtonPage), Data);
             BackButton.Visibility = Visibility.Collapsed;
             OptionsButton.Visibility = Visibility.Visible;
+        }
+
+        public void Click()
+        {
+            ClickSound.Play();
+            Data.Clicks++;
         }
     }
 }

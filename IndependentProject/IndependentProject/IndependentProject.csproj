@@ -101,8 +101,8 @@
     <Compile Include="Pages\ButtonPage.xaml.cs">
       <DependentUpon>ButtonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CustomizePage.xaml.cs">
-      <DependentUpon>CustomizePage.xaml</DependentUpon>
+    <Compile Include="Pages\StatsPage.xaml.cs">
+      <DependentUpon>StatsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Data.cs" />
     <Compile Include="Classes\Helper.cs" />
@@ -128,9 +128,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\background.png" />
+    <Content Include="Assets\bargaining.jpg" />
+    <Content Include="Assets\cable.png" />
+    <Content Include="Assets\clocks.jpg" />
     <Content Include="Assets\gear.jpg" />
+    <Content Include="Assets\money.jpg" />
+    <Content Include="Assets\monkey.jpg" />
     <Content Include="Assets\mouse.png" />
+    <Content Include="Assets\office.jpg" />
     <Content Include="Assets\questionmark.png" />
+    <Content Include="Assets\satellite.jpg" />
+    <Content Include="Assets\upload.png" />
     <Content Include="clicksound.wav" />
     <Content Include="FodyWeavers.xml" />
     <Content Include="lostandforgotten.wav">
@@ -158,7 +166,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\CustomizePage.xaml">
+    <Page Include="Pages\StatsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

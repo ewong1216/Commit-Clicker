@@ -12,18 +12,16 @@
     <Grid>
         <TextBlock Text="Achievements" FontSize="25" Margin="50,20,0,0"/>
         <Rectangle HorizontalAlignment="Stretch" Height="5" Fill="Black" VerticalAlignment="Top" Margin="0,50,0,0"/>
-        <StackPanel Margin="0,55,0,0">
-            <ScrollViewer>
-                <GridView ItemsSource="{x:Bind Data.Achievements}">
-                    <GridView.ItemTemplate>
-                        <DataTemplate x:DataType="data:Achievement">
-                            <Button Height="50" Width="50" Margin="30" ToolTipService.ToolTip="{x:Bind ToString()}" Background="White">
-                                <Image Source="{x:Bind DisplayImage}" Stretch="Uniform"/>
-                            </Button>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
-                </GridView>
-            </ScrollViewer>
-        </StackPanel>
+        <ScrollViewer Margin="0,65,0,0">
+            <GridView ItemsSource="{x:Bind Data.Achievements}">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Achievement">
+                        <Button Height="80" Width="80" Margin="30" ToolTipService.ToolTip="{x:Bind ToString()}" Background="Black">
+                            <Image Source="{x:Bind DisplayImage}" Stretch="Uniform"/>
+                        </Button>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </ScrollViewer>
     </Grid>
 </Page>

@@ -21,12 +21,13 @@ namespace IndependentProject
         public string Description { get; set; }
         public int Cost { get; set; }
         public int BaseCost { get; set; }
+        public int IncrementCost { get; set; }
         public int ScalingCost { get; set; }
         public double Multiplier { get; set; } = 1.0;
 
         public void SetCost(double costMultiplier)
         {
-            Cost = (int) ((BaseCost + Level * (ScalingCost + (Level - 1))) * costMultiplier);
+            Cost = (int) ((BaseCost + Level * IncrementCost + Level * Level * ScalingCost) * costMultiplier);
         }
         public void SetCPS()
         {
@@ -39,12 +40,14 @@ namespace IndependentProject
             SetCPS();
             SetCost(costMultiplier);
         }
-        public Helper(string name, string description, int baseCPS, int baseCost, int scalingCost)
+
+        public Helper(string name, string description, int baseCPS, int baseCost, int incrementCost, int scalingCost)
         {
             Name = name;
             Description = description;
             BaseCPS = baseCPS;
             BaseCost = baseCost;
+            IncrementCost = incrementCost;
             ScalingCost = scalingCost;
             NextCPS = BaseCPS;
             SetCost(1.0);

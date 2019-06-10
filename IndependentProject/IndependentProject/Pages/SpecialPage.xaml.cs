@@ -38,6 +38,8 @@ namespace IndependentProject
 
         private void SpecialUpgrade_Click(object sender, RoutedEventArgs e)
         {
+            ClickSound.Play();
+            Data.Clicks++;
             Special s = ((FrameworkElement)sender).DataContext as Special;
             if(Data.Specialpoints >= s.Cost)
             {

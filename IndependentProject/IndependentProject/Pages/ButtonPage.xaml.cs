@@ -23,14 +23,16 @@ namespace IndependentProject
     public sealed partial class ButtonPage : Page
     {
         Data Data;
+
         public ButtonPage()
         {
             this.InitializeComponent();
-            
         }
 
         private void CommitButton_Click(object sender, RoutedEventArgs e)
         {
+            ClickSound.Play();
+            Data.Clicks++;
             Data.Commits += Data.CommitsClickIncrement;
             Data.AllTimeCommits += Data.CommitsClickIncrement;
         }

@@ -15,16 +15,16 @@ namespace IndependentProject.Classes
 
         public int SP { get; set; }
         public bool Unlocked { get; set; } = false;
-        public int Requirement { get; set; }
+        public long Requirement { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string DisplayImage { get; set; } = "/Assets/questionmark.png";
         public string Image { get; set; }
-        public int Type { get; set; } //Type: 0=AllTimeCommit achievement, 1=HelperLevelAchievement
+        public int Type { get; set; } //Type: 0=AllTimeCommit achievement, 1=HelperLevelAchievement, 2=CPS achievement
         public Data Data { get; set; }
         public Helper Helper { get; set; }
 
-        public Achievement(string name, int sp, int requirement, string description, string image, int type, Data data, Helper helper)
+        public Achievement(string name, int sp, long requirement, string description, string image, int type, Data data, Helper helper)
         {
             Name = name;
             SP = sp;
@@ -48,6 +48,11 @@ namespace IndependentProject.Classes
                 Achieve();
                 return true;
             }
+            else if(Type == 2 && Data.CommitsPerSecond >= Requirement)
+            {
+                Achieve();
+                return true;
+            }
             return false;
         }
 
@@ -58,15 +63,12 @@ namespace IndependentProject.Classes
             Data.Specialpoints += SP;
         }
         public override string ToString()
-        {
-            string s = "???";
-
+        {            
             if (Unlocked)
             {
-                s = Name + "\n" + Description + "\nReward: " + SP + " SP";
+                return Name + "\n" + Description + "\nReward: " + SP + " SP";
             }
-
-            return s;
+            return "???";
         }
     }
 }

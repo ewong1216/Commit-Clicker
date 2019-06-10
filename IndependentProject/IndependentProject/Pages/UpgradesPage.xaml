@@ -29,6 +29,7 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <MediaElement Name="ClickSound" Source="clicksound.wav"/>
         <TextBlock Text="Helpers" FontSize="25" Margin="50,20,0,0"/>
         <Rectangle Fill="Black" HorizontalAlignment="Stretch" Height="5" VerticalAlignment="Top" Margin="0,50,0,0"/>
         <ScrollViewer Grid.Column="0" Margin="0,65,0,0">
@@ -68,7 +69,7 @@
                                     </StackPanel>
                                 </StackPanel>
                                 <Rectangle Fill="Black" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="0" Height="3" Grid.ColumnSpan="3" Margin="0,5,0,0"/>
-                                <Button Name="HireUpgrade" Grid.Column="2" HorizontalAlignment="Right" Content="Hire/Upgrade" Margin="0,3,16,0" Click="HireUpgrade_Click"/>
+                                <Button Name="HireUpgrade" Grid.Column="2" HorizontalAlignment="Right" Content="Hire/Upgrade" Margin="0,3,16,0" Background="Black" Foreground="White" Click="HireUpgrade_Click"/>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -89,7 +90,7 @@
                 <GridView ItemsSource="{x:Bind Data.Upgrades}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="local1:Upgrade">
-                            <Button Height="50" Width="50" Margin="18" Background="White" Click="Upgrade_Click" ToolTipService.ToolTip="{x:Bind ToString()}">
+                            <Button Height="80" Width="80" Margin="18" Background="Black" Click="Upgrade_Click" ToolTipService.ToolTip="{x:Bind ToString()}">
                                 <Image Source="{x:Bind Image}" Stretch="Uniform"/>
                             </Button>
                         </DataTemplate>
@@ -102,7 +103,7 @@
                 <GridView ItemsSource="{x:Bind Data.PastUpgrades}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="local1:Upgrade">
-                            <Button Height="50" Width="50" Margin="18" Background="White" ToolTipService.ToolTip="{x:Bind ToString()}">
+                            <Button Height="80" Width="80" Margin="18" Background="Black" ToolTipService.ToolTip="{x:Bind ToString()}">
                                 <Image Source="{x:Bind Image}" Stretch="Uniform" Opacity="50"/>
                             </Button>
                         </DataTemplate>

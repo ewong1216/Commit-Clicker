@@ -30,7 +30,7 @@ namespace IndependentProject.Classes
         public void Purchase()
         {
             Multiplier += 0.05;
-            Cost += 10;
+            Cost += 50;
         }
         public override string ToString()
         {

@@ -9,28 +9,27 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
+        <MediaElement Name="ClickSound" Source="clicksound.wav"/>
         <TextBlock Text="Specials" FontSize="25" Margin="50,20,0,0"/>
         <Rectangle HorizontalAlignment="Stretch" Height="5" Fill="Black" Margin="0,50,0,0" VerticalAlignment="Top"/>
-        <StackPanel>
-            <ScrollViewer Margin="0,55,0,0">
-                <GridView ItemsSource="{x:Bind Data.Specials}">
-                    <GridView.ItemTemplate>
-                        <DataTemplate x:DataType="data:Special">
-                            <Button Height="50" Width="50" Margin="30" ToolTipService.ToolTip="{x:Bind Name}" Background="White">
-                                <Image Source="{x:Bind Image}" Stretch="Uniform"/>
-                                <Button.Flyout>
-                                    <Flyout>
-                                        <StackPanel>
-                                            <TextBlock Text="{x:Bind ToString()}" FontSize="15"/>
-                                            <Button Content="Upgrade" FontSize="13" Margin="0,10,0,0" Click="SpecialUpgrade_Click"/>
-                                        </StackPanel>
-                                    </Flyout>
-                                </Button.Flyout>
-                            </Button>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
-                </GridView>
-            </ScrollViewer>
-        </StackPanel>
+        <ScrollViewer Margin="0,55,0,0">
+            <GridView ItemsSource="{x:Bind Data.Specials}">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Special">
+                        <Button Height="200" Width="200" Margin="40" ToolTipService.ToolTip="{x:Bind Name}" Background="Black">
+                            <Image Source="{x:Bind Image}" Stretch="Uniform"/>
+                            <Button.Flyout>
+                                 <Flyout>
+                                    <StackPanel>
+                                        <TextBlock Text="{x:Bind ToString()}" FontSize="15"/>
+                                        <Button Content="Upgrade" FontSize="13" Margin="0,10,0,0" Click="SpecialUpgrade_Click"/>
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+         </ScrollViewer>
     </Grid>
 </Page>

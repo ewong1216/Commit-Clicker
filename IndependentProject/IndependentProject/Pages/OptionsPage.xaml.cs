@@ -54,6 +54,8 @@ namespace IndependentProject
 
         private void RestoreToDefault_Click(object sender, RoutedEventArgs e)
         {
+            ClickSound.Play();
+            Data.Clicks++;
             MusicSlider.Value = 50;
             SoundSlider.Value = 50;
             Data.MusicVolume = 0.5;

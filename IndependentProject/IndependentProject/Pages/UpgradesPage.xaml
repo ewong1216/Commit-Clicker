@@ -99,7 +99,7 @@
             </ScrollViewer>
             <TextBlock Text="Past Upgrades" FontSize="22" Grid.Row="1" Margin="7,0,0,0"/>
             <Rectangle Grid.Row="1" Style="{StaticResource Divider}" VerticalAlignment="Top" Margin="0,30,0,0"/>
-            <ScrollViewer Grid.Row="1" Margin="0,25,0,0">
+            <ScrollViewer Grid.Row="1" Margin="0,45,0,0">
                 <GridView ItemsSource="{x:Bind Data.PastUpgrades}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="local1:Upgrade">

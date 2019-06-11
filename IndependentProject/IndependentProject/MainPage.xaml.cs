@@ -31,7 +31,7 @@ namespace IndependentProject
         {
             this.InitializeComponent();
             Data.CommitsClickIncrement = 1;
-            Data.Commits = 0;
+            Data.Commits = 9999990;
             Data.CommitsPerSecond = 0;
             Data.Specialpoints = 0;
             InnerFrame.Navigate(typeof(ButtonPage), Data);

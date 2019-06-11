@@ -12,61 +12,63 @@
         <MediaElement Name="ClickSound" Source="clicksound.wav"/>
         <TextBlock Text="Options" FontSize="25" Margin="50,20,0,0"/>
         <Rectangle Fill="Black" HorizontalAlignment="Stretch" Height="5" VerticalAlignment="Top" Margin="0,50,0,0"/>
-        <Grid Margin="50,85,0,0">
+        <Grid Margin="50,60,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Music Volume:" FontSize="23" Margin="0,0,20,0"/>
+            <TextBlock Text="Music Volume:" FontSize="20" Margin="0,0,20,0" VerticalAlignment="Center"/>
             <Slider Name="MusicSlider" Minimum="0" Maximum="100" Width="500" Value="50" Grid.Column="1" ValueChanged="MusicSlider_ValueChanged" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            
-            <TextBlock Text="Sound Volume:" FontSize="23" Margin="0,15,20,30" Grid.Row="1"/>
+
+            <TextBlock Text="Sound Volume:" FontSize="20" Margin="0,10,20,10" Grid.Row="1"/>
             <Slider Name="SoundSlider" Minimum="0" Maximum="100" Width="500" Value="50" Grid.Row="1" Grid.Column="1" ValueChanged="SoundSlider_ValueChanged" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
             <Button Background="Black" Foreground="White" Content="Restore To Default" Grid.Row="2" Click="RestoreToDefault_Click"/>
-            
-            <TextBlock Text="Instructions:" FontSize="23" Grid.Row="3" Margin="0,25,0,25"/>
-            <Rectangle Fill="Black" Height="3" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="3" Margin="0,30,0,0"/>
 
-            <Grid Grid.Row="4">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="Main Page:" FontSize="20" />
-                <TextBlock Text="Click the Commit! button to gain commits, click the 4 buttons at the top of the page to navigate to their pages. Gear in bottom left opens options (this page)." 
-                           TextWrapping="WrapWholeWords" FontSize="20" Grid.Column="1"/>
+            <TextBlock Text="Instructions:" FontSize="23" Grid.Row="3" Margin="0,15,0,0"/>
+            <Rectangle Fill="Black" Height="3" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="3" Margin="0,40,0,0"/>
 
-                <TextBlock Text="Upgrades Page:" FontSize="20" Grid.Row="1" Margin="0,25,0,25"/>
-                <TextBlock Text="Hire or level-up helpers on the left by paying commits. They get some amount of commits per second (CPS) for you. Upgrades on the right increase the CPS of the helpers. After you purchase upgrades they move down to the Past Upgrades section." 
-                           TextWrapping="WrapWholeWords" FontSize="20" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+            <ScrollViewer Grid.Row="4" Grid.ColumnSpan="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Main Page:" FontSize="16" />
+                    <TextBlock Text="Click the Commit! button to gain commits, click the 4 buttons at the top of the page to navigate to their pages. Gear in bottom left opens options (this page)." 
+                           TextWrapping="WrapWholeWords" FontSize="16" Grid.Column="1"/>
 
-                <TextBlock Text="Achievements Page:" FontSize="20" Grid.Row="2" Margin="0,25,0,25"/>
-                <TextBlock Text="Displays all of the achievements in the game. If locked, they display '???.' Once unlocked, a pop-up will display showing that you have unlocked it, add Special Points to your total, and will then display relevant information in the Achievements Page."
-                           TextWrapping="WrapWholeWords" FontSize="20" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
+                    <TextBlock Text="Upgrades Page:" FontSize="16" Grid.Row="1" Margin="0,25,0,25"/>
+                    <TextBlock Text="Hire or level-up helpers on the left by paying commits. They get some amount of commits per second (CPS) for you. Upgrades on the right increase the CPS of the helpers. After you purchase upgrades they move down to the Past Upgrades section." 
+                           TextWrapping="WrapWholeWords" FontSize="16" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,15,0,15"/>
 
-                <TextBlock Text="Special Page:" FontSize="20" Grid.Row="3" Margin="0,25,0,25"/>
-                <TextBlock Text="Using Special Points (SP) earned from unlocking achievements, you can purchase special upgrades which have very helpful effects."
-                           TextWrapping="WrapWholeWords" FontSize="20" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+                    <TextBlock Text="Achievements Page:" FontSize="16" Grid.Row="2" Margin="0,25,15,25"/>
+                    <TextBlock Text="Displays all of the achievements in the game. If locked, they display '???.' Once unlocked, a pop-up will display showing that you have unlocked it, add Special Points to your total, and will then display relevant information in the Achievements Page."
+                           TextWrapping="WrapWholeWords" FontSize="16" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
 
-                <TextBlock Text="Stats Page:" FontSize="20" Grid.Row="4" Margin="0,25,0,25"/>
-                <TextBlock Text="Displays some fun stats of your progress in the game."
-                           TextWrapping="WrapWholeWords" FontSize="20" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"/>
-            </Grid>
+                    <TextBlock Text="Special Page:" FontSize="16" Grid.Row="3" Margin="0,25,0,25"/>
+                    <TextBlock Text="Using Special Points (SP) earned from unlocking achievements, you can purchase special upgrades which have very helpful effects."
+                           TextWrapping="WrapWholeWords" FontSize="16" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+
+                    <TextBlock Text="Stats Page:" FontSize="16" Grid.Row="4" Margin="0,25,0,25"/>
+                    <TextBlock Text="Displays some fun stats of your progress in the game."
+                           TextWrapping="WrapWholeWords" FontSize="16" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"/>
+                </Grid>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

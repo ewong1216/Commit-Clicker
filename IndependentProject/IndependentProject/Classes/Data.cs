@@ -39,6 +39,14 @@ namespace IndependentProject
             AddAchievements();
             AddSpecials();
         }
+        public void SetTotalCPS()
+        {
+            CommitsPerSecond = 0;
+            foreach(Helper h in Helpers)
+            {
+                CommitsPerSecond += h.CPS;
+            }
+        }
         public string TimePlayed()
         {
             return new TimeSpan(Seconds).ToString();
@@ -93,7 +101,7 @@ namespace IndependentProject
         {
             Achievements.Add(new Achievement("Commit Discovery", 5, 1, "Earn 1 commit all time", "/Assets/mouse.png", 0, this, null));
             Achievements.Add(new Achievement("Commit Gatherer", 10, 100, "Earn 100 commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Colletor", 30, 10000, "Earn 10,000 commits all time", "/Assets/mouse.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Collector", 30, 10000, "Earn 10,000 commits all time", "/Assets/mouse.png", 0, this, null));
             Achievements.Add(new Achievement("Commit Hoarder", 50, 1000000, "Earn 1M commits all time", "/Assets/mouse.png", 0, this, null));
             Achievements.Add(new Achievement("Commit Connisseur", 100, 100000000, "Earn 100M commits all time", "/Assets/mouse.png", 0, this, null));
             Achievements.Add(new Achievement("Commit Investigator", 200, 10000000000, "Earn 10B commits all time", "/Assets/mouse.png", 0, this, null));

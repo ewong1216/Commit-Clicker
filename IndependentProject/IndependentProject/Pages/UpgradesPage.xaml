@@ -32,7 +32,7 @@
         <MediaElement Name="ClickSound" Source="clicksound.wav"/>
         <TextBlock Text="Helpers" FontSize="25" Margin="50,20,0,0"/>
         <Rectangle Fill="Black" HorizontalAlignment="Stretch" Height="5" VerticalAlignment="Top" Margin="0,50,0,0"/>
-        <ScrollViewer Grid.Column="0" Margin="0,65,0,0">
+        <ScrollViewer Grid.Column="0" Margin="0,55,0,0">
             <Grid>
                 <ItemsControl ItemsSource="{x:Bind Data.Helpers}">
                     <ItemsControl.ItemTemplate>
@@ -86,7 +86,7 @@
             </Grid.RowDefinitions>
             <TextBlock Text="Upgrades" FontSize="22" Margin="7,0,0,0"/>
             <Rectangle Style="{StaticResource Divider}" VerticalAlignment="Top" Margin="0,30,0,0"/>
-            <ScrollViewer Margin="0,40,0,0">
+            <ScrollViewer Margin="0,33,0,0">
                 <GridView ItemsSource="{x:Bind Data.Upgrades}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="local1:Upgrade">
@@ -99,7 +99,7 @@
             </ScrollViewer>
             <TextBlock Text="Past Upgrades" FontSize="22" Grid.Row="1" Margin="7,0,0,0"/>
             <Rectangle Grid.Row="1" Style="{StaticResource Divider}" VerticalAlignment="Top" Margin="0,30,0,0"/>
-            <ScrollViewer Grid.Row="1" Margin="0,45,0,0">
+            <ScrollViewer Grid.Row="1" Margin="0,33,0,0">
                 <GridView ItemsSource="{x:Bind Data.PastUpgrades}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="local1:Upgrade">

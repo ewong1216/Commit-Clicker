@@ -12,7 +12,7 @@
     <Grid>
         <TextBlock Text="Achievements" FontSize="25" Margin="50,20,0,0"/>
         <Rectangle HorizontalAlignment="Stretch" Height="5" Fill="Black" VerticalAlignment="Top" Margin="0,50,0,0"/>
-        <ScrollViewer Margin="0,65,0,0">
+        <ScrollViewer Margin="0,55,0,0">
             <GridView ItemsSource="{x:Bind Data.Achievements}">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:Achievement">

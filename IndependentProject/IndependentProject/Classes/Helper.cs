@@ -23,21 +23,21 @@ namespace IndependentProject
         public int BaseCost { get; set; }
         public int IncrementCost { get; set; }
         public int ScalingCost { get; set; }
-        public double Multiplier { get; set; } = 1.0;
+        public double UpgradesMultiplier { get; set; } = 1.0;
 
         public void SetCost(double costMultiplier)
         {
             Cost = (int) ((BaseCost + Level * IncrementCost + Level * Level * ScalingCost) * costMultiplier);
         }
-        public void SetCPS()
+        public void SetCPS(double specialCPSMultiplier)
         {
-            CPS = (int)(Level * BaseCPS * Multiplier);
-            NextCPS = (int)((Level+1) * BaseCPS * Multiplier);
+            CPS = (int)(Level * BaseCPS * UpgradesMultiplier * specialCPSMultiplier);
+            NextCPS = (int)((Level+1) * BaseCPS * UpgradesMultiplier * specialCPSMultiplier);
         }
-        public void LevelUp(double costMultiplier)
+        public void LevelUp(double costMultiplier, double specialCPSMultiplier)
         {
             Level++;
-            SetCPS();
+            SetCPS(specialCPSMultiplier);
             SetCost(costMultiplier);
         }
 

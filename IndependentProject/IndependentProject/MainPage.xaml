@@ -64,14 +64,16 @@
             </StackPanel>
 
         </Grid>
-        <Popup Name="Popup" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,200,0">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Margin="0,0,10,0">
-                    <TextBlock Text="Achievement Unlocked!" FontSize="17"/>
-                    <TextBlock Name="PopupText" FontSize="15"/>
+        <Popup Name="Popup" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,220,0">
+            <Border BorderThickness="2" BorderBrush="Black">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="0,0,10,0">
+                        <TextBlock Name="PopupTitleText" FontSize="17"/>
+                        <TextBlock Name="PopupText" FontSize="15"/>
+                    </StackPanel>
+                    <Button Content="Close" Height="45" Width="55" FontSize="13" Background="Black" Foreground="White" Click="PopupButton_Click"/>
                 </StackPanel>
-                <Button Content="Close" Height="35" Width="55" FontSize="13" Background="Black" Foreground="White" Click="PopupButton_Click"/>
-            </StackPanel>
+            </Border>
         </Popup>
         <Frame Name="InnerFrame" Grid.Row="1"/>
         <Button Name="OptionsButton" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="50" Background="Black" Click="NavigateButton_Click">

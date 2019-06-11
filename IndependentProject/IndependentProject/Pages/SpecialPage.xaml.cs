@@ -45,6 +45,14 @@ namespace IndependentProject
             {
                 Data.Specialpoints -= s.Cost;
                 s.Purchase();
+                if(s.Name.Equals("Time Hacking"))
+                {
+                    foreach(Helper h in Data.Helpers)
+                    {
+                        h.SetCPS(1.0 + s.Multiplier);
+                    }
+                    Data.SetTotalCPS();
+                }
             }
         }
     }

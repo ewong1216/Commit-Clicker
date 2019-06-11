@@ -37,6 +37,7 @@ namespace IndependentProject
             foreach(Helper h in Data.Helpers)
             {
                 h.SetCost(1.0 - Data.Specials.ElementAt(0).Multiplier);
+                h.SetCPS(1.0 + Data.Specials.ElementAt(2).Multiplier);
             }
             foreach(Upgrade u in Data.Upgrades)
             {
@@ -51,13 +52,12 @@ namespace IndependentProject
             Upgrade u = ((FrameworkElement)sender).DataContext as Upgrade;
             if(u.Cost <= Data.Commits)
             {
-                u.Helper.Multiplier += u.Multiplier;
+                u.Helper.UpgradesMultiplier += u.CPSMultiplier;
                 Data.Commits -= u.Cost;
                 Data.Upgrades.Remove(u);
                 Data.PastUpgrades.Add(u);
-                Data.CommitsPerSecond -= u.Helper.CPS;
-                u.Helper.SetCPS();
-                Data.CommitsPerSecond += u.Helper.CPS;
+                u.Helper.SetCPS(1.0 + Data.Specials.ElementAt(2).Multiplier);
+                Data.SetTotalCPS();
             }
         }
 
@@ -69,9 +69,8 @@ namespace IndependentProject
             if (Data.Commits >= helper.Cost)
             {
                 Data.Commits -= helper.Cost;
-                Data.CommitsPerSecond -= helper.CPS;
-                helper.LevelUp(1.0 - Data.Specials.ElementAt(0).Multiplier);
-                Data.CommitsPerSecond += helper.CPS;
+                helper.LevelUp(1.0 - Data.Specials.ElementAt(0).Multiplier, 1.0 + Data.Specials.ElementAt(2).Multiplier);
+                Data.SetTotalCPS();
             }
         }
     }

@@ -31,7 +31,7 @@ namespace IndependentProject
         {
             this.InitializeComponent();
             Data.CommitsClickIncrement = 1;
-            Data.Commits = 9999990;
+            Data.Commits = 0;
             Data.CommitsPerSecond = 0;
             Data.Specialpoints = 0;
             InnerFrame.Navigate(typeof(ButtonPage), Data);
@@ -40,7 +40,11 @@ namespace IndependentProject
             timer.Interval = new TimeSpan(0, 0, 0, 1);
             timer.Tick += DispatcherTimer_Tick;
             timer.Start();
+            PopupText.Text = "Click on the Gear on the \nbottom left for instructions.";
+            PopupTitleText.Text = "Welcome to CommitClicker!";
+            Popup.IsOpen = true;
         }
+
         private void DispatcherTimer_Tick(object sender, object e)
         {
             Data.Commits += Data.CommitsPerSecond;
@@ -63,6 +67,7 @@ namespace IndependentProject
         }
         private void PopupButton_Click(object sender, RoutedEventArgs e)
         {
+            PopupTitleText.Text = "Achievement Unlocked!";
             Popup.IsOpen = false;
         }
         private void NavigateButton_Click(object sender, RoutedEventArgs e)

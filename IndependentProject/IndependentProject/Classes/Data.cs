@@ -84,26 +84,29 @@ namespace IndependentProject
             Upgrades.Add(new Upgrade("/Assets/office.jpg", 900000000, 1.0, "Skyscrapers", "Increases Office Building CPS by 100%", Helpers.ElementAt(3)));
 
             Upgrades.Add(new Upgrade("/Assets/satellite.jpg", 8000000000, 0.1, "Cheaper Materials", "Increases Satellite CPS by 10%", Helpers.ElementAt(4)));
-            Upgrades.Add(new Upgrade("/Assets/satellite.jpg", 15000000000, 0.25, "Temperature Control", "Increases Satellite CPS by 25%", Helpers.ElementAt(4)));
-            Upgrades.Add(new Upgrade("/Assets/satellite.jpg", 60000000000, 0.5, "Basement Expansion", "Increases Satellite CPS by 50%", Helpers.ElementAt(4)));
-            Upgrades.Add(new Upgrade("/Assets/satellite.jpg", 100000000000, 1.0, "Skyscrapers", "Increases Satellite CPS by 100%", Helpers.ElementAt(4)));
+            Upgrades.Add(new Upgrade("/Assets/satellite.jpg", 15000000000, 0.25, "", "Increases Satellite CPS by 25%", Helpers.ElementAt(4)));
+            Upgrades.Add(new Upgrade("/Assets/satellite.jpg", 60000000000, 0.5, "", "Increases Satellite CPS by 50%", Helpers.ElementAt(4)));
+            Upgrades.Add(new Upgrade("/Assets/satellite.jpg", 100000000000, 1.0, "", "Increases Satellite CPS by 100%", Helpers.ElementAt(4)));
         }
 
         private void AddAchievements()
         {
-            Achievements.Add(new Achievement("Commit Beginner", 5, 1, "Earn 1 commit all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Novice", 10, 100, "Earn 100 commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Trainee", 30, 10000, "Earn 10,000 commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Master", 50, 1000000, "Earn 1M commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Legend", 100, 100000000, "Earn 100M commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit God", 200, 10000000000, "Earn 10B commits all time", "/Assets/mouse.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Discovery", 5, 1, "Earn 1 commit all time", "/Assets/mouse.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Gatherer", 10, 100, "Earn 100 commits all time", "/Assets/mouse.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Colletor", 30, 10000, "Earn 10,000 commits all time", "/Assets/mouse.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Hoarder", 50, 1000000, "Earn 1M commits all time", "/Assets/mouse.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Connisseur", 100, 100000000, "Earn 100M commits all time", "/Assets/mouse.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Investigator", 200, 10000000000, "Earn 10B commits all time", "/Assets/mouse.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Researcher", 400, 1000000000000, "Earn 1T commits all time", "/Assets/mouse.png", 0, this, null));
 
             Achievements.Add(new Achievement("Quick Committer", 5, 1, "Reach 10 CPS", "/Assets/upload.png", 2, this, null));
             Achievements.Add(new Achievement("Swift Committer", 10, 100, "Reach 100 CPS", "/Assets/upload.png", 2, this, null));
             Achievements.Add(new Achievement("Rapid Committer", 30, 1000, "Reach 1,000 CPS", "/Assets/upload.png", 2, this, null));
             Achievements.Add(new Achievement("Hyper Committer", 50, 10000, "Reach 10,000 CPS", "/Assets/upload.png", 2, this, null));
-            Achievements.Add(new Achievement("Insane Committer", 100, 100000, "Reach 100,000 CPS", "/Assets/upload.png", 2, this, null));
-            Achievements.Add(new Achievement("Lightspeed Committer", 200, 1000000, "Reach 1M CPS", "/Assets/upload.png", 2, this, null));
+            Achievements.Add(new Achievement("Crazy Committer", 70, 100000, "Reach 100,000 CPS", "/Assets/upload.png", 2, this, null));
+            Achievements.Add(new Achievement("Insane Committer", 100, 1000000, "Reach 1M CPS", "/Assets/upload.png", 2, this, null));
+            Achievements.Add(new Achievement("Surpersonic Committer", 200, 10000000, "Reach 10M CPS", "/Assets/upload.png", 2, this, null));
+            Achievements.Add(new Achievement("Lightspeed Committer", 400, 100000000, "Reach 100M CPS", "/Assets/upload.png", 2, this, null));
 
             Achievements.Add(new Achievement("Auto Clicker Beginner", 5, 1, "Reach Auto Clicker Level 1", "/Assets/mouse.png", 1, this, Helpers.ElementAt(0)));
             Achievements.Add(new Achievement("Auto Clicker Novice", 10, 10, "Reach Auto Clicker Level 10", "/Assets/mouse.png", 1, this, Helpers.ElementAt(0)));

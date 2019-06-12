@@ -19,7 +19,7 @@ namespace IndependentProject.Classes
         public string Name { get; set; }
         public string Description { get; set; }
         public string DisplayImage { get; set; } = "/Assets/questionmark.png";
-        public string Image { get; set; }
+        public string UnlockedImage { get; set; }
         public int Type { get; set; } //Type: 0=AllTimeCommit achievement, 1=HelperLevelAchievement, 2=CPS achievement
         public Data Data { get; set; }
         public Helper Helper { get; set; }
@@ -30,7 +30,7 @@ namespace IndependentProject.Classes
             SP = sp;
             Requirement = requirement;
             Description = description;
-            Image = image;
+            UnlockedImage = image;
             Type = type;
             Data = data;
             Helper = helper;
@@ -59,7 +59,7 @@ namespace IndependentProject.Classes
         private void Achieve()
         {
             Unlocked = true;
-            DisplayImage = Image;
+            DisplayImage = UnlockedImage;
             Data.Specialpoints += SP;
         }
         public override string ToString()

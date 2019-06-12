@@ -40,12 +40,27 @@ namespace IndependentProject
         {
             ClickSound.Play();
             Data.Clicks++;
-            Special s = ((FrameworkElement)sender).DataContext as Special;
-            if(Data.Specialpoints >= s.Cost)
+            Special s = ((FrameworkElement)sender).DataContext as Special; //https://stackoverflow.com/questions/1168976/button-in-a-column-getting-the-row-from-which-it-came-on-the-click-event-handle
+            if (Data.Specialpoints >= s.Cost)
             {
                 Data.Specialpoints -= s.Cost;
                 s.Purchase();
-                if(s.Name.Equals("Time Hacking"))
+                if(s.Name.Equals("Better Bargaining Skills"))
+                {
+                    foreach (Helper h in Data.Helpers)
+                    {
+                        h.SetCost(1.0 - Data.Specials.ElementAt(0).Multiplier);
+                        h.SetCPS(1.0 + Data.Specials.ElementAt(2).Multiplier);
+                    }
+                }
+                else if(s.Name.Equals("Cheaper Upgrades"))
+                {
+                    foreach (Upgrade u in Data.Upgrades)
+                    {
+                        u.Cost = (int)(u.Cost * (1.0 - Data.Specials.ElementAt(1).Multiplier));
+                    }
+                }
+                else if(s.Name.Equals("Time Hacking"))
                 {
                     foreach(Helper h in Data.Helpers)
                     {

@@ -21,6 +21,12 @@
                 <Setter Property="Height" Value="3"/>
                 <Setter Property="Margin" Value="0,0,0,5"/>
             </Style>
+            <Style TargetType="Button" x:Key="UpgradeButton">
+                <Setter Property="Height" Value="80"/>
+                <Setter Property="Width" Value="80"/>
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Margin" Value="18"/>
+            </Style>
         </ResourceDictionary>
     </Page.Resources>
 
@@ -31,7 +37,7 @@
         </Grid.ColumnDefinitions>
         <MediaElement Name="ClickSound" Source="clicksound.wav"/>
         <TextBlock Text="Helpers" FontSize="25" Margin="50,20,0,0"/>
-        <Rectangle Fill="Black" HorizontalAlignment="Stretch" Height="5" VerticalAlignment="Top" Margin="0,50,0,0"/>
+        <Rectangle Style="{StaticResource Divider}" Height="5" VerticalAlignment="Top" Margin="0,50,0,0"/>
         <ScrollViewer Grid.Column="0" Margin="0,55,0,0">
             <Grid>
                 <ItemsControl ItemsSource="{x:Bind Data.Helpers}">
@@ -68,7 +74,7 @@
                                         <TextBlock FontSize="15" Text="{x:Bind NextCPS}"/>
                                     </StackPanel>
                                 </StackPanel>
-                                <Rectangle Fill="Black" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="0" Height="3" Grid.ColumnSpan="3" Margin="0,5,0,0"/>
+                                <Rectangle Style="{StaticResource Divider}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,0,0"/>
                                 <Button Name="HireUpgrade" Grid.Column="2" HorizontalAlignment="Right" Content="Hire/Upgrade" Margin="0,3,16,0" Background="Black" Foreground="White" Click="HireUpgrade_Click"/>
                             </Grid>
                         </DataTemplate>
@@ -90,7 +96,7 @@
                 <GridView ItemsSource="{x:Bind Data.Upgrades}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="local1:Upgrade">
-                            <Button Height="80" Width="80" Margin="18" Background="Black" Click="Upgrade_Click" ToolTipService.ToolTip="{x:Bind ToString()}">
+                            <Button Style="{StaticResource UpgradeButton}" Click="Upgrade_Click" ToolTipService.ToolTip="{x:Bind ToString()}">
                                 <Image Source="{x:Bind Image}" Stretch="Uniform"/>
                             </Button>
                         </DataTemplate>
@@ -103,8 +109,8 @@
                 <GridView ItemsSource="{x:Bind Data.PastUpgrades}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="local1:Upgrade">
-                            <Button Height="80" Width="80" Margin="18" Background="Black" ToolTipService.ToolTip="{x:Bind ToString()}">
-                                <Image Source="{x:Bind Image}" Stretch="Uniform" Opacity="50"/>
+                            <Button Style="{StaticResource UpgradeButton}" ToolTipService.ToolTip="{x:Bind ToString()}">
+                                <Image Source="{x:Bind Image}" Stretch="Uniform" Opacity=".5"/>
                             </Button>
                         </DataTemplate>
                     </GridView.ItemTemplate>

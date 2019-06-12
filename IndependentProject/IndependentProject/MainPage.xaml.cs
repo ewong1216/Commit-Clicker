@@ -45,6 +45,7 @@ namespace IndependentProject
             Popup.IsOpen = true;
         }
 
+        //https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.dispatchertimer, I didn't copy their code but I used their syntax and my own Tick method body.
         private void DispatcherTimer_Tick(object sender, object e)
         {
             Data.Commits += Data.CommitsPerSecond;
@@ -61,7 +62,7 @@ namespace IndependentProject
                     }
                 }
             }
-            Data.Seconds+=10000000;
+            Data.Seconds+=10000000; //This is because the TimeSpan object which I used to calculate time played in HH:MM:SS from seconds takes in "ticks" in the constructor, not seconds.
             Player.Volume = Data.MusicVolume;
             ClickSound.Volume = Data.SoundVolume;
         }

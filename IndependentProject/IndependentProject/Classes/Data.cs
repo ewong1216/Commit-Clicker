@@ -99,13 +99,13 @@ namespace IndependentProject
 
         private void AddAchievements()
         {
-            Achievements.Add(new Achievement("Commit Discovery", 5, 1, "Earn 1 commit all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Gatherer", 10, 100, "Earn 100 commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Collector", 30, 10000, "Earn 10,000 commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Hoarder", 50, 1000000, "Earn 1M commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Connisseur", 100, 100000000, "Earn 100M commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Investigator", 200, 10000000000, "Earn 10B commits all time", "/Assets/mouse.png", 0, this, null));
-            Achievements.Add(new Achievement("Commit Researcher", 400, 1000000000000, "Earn 1T commits all time", "/Assets/mouse.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Discovery", 5, 1, "Earn 1 commit all time", "/Assets/commitgraph.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Gatherer", 10, 100, "Earn 100 commits all time", "/Assets/commitgraph.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Collector", 30, 10000, "Earn 10,000 commits all time", "/Assets/commitgraph.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Hoarder", 50, 1000000, "Earn 1M commits all time", "/Assets/commitgraph.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Connisseur", 100, 100000000, "Earn 100M commits all time", "/Assets/commitgraph.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Investigator", 200, 10000000000, "Earn 10B commits all time", "/Assets/commitgraph.png", 0, this, null));
+            Achievements.Add(new Achievement("Commit Researcher", 400, 1000000000000, "Earn 1T commits all time", "/Assets/commitgraph.png", 0, this, null));
 
             Achievements.Add(new Achievement("Quick Committer", 5, 10, "Reach 10 CPS", "/Assets/upload.png", 2, this, null));
             Achievements.Add(new Achievement("Swift Committer", 10, 100, "Reach 100 CPS", "/Assets/upload.png", 2, this, null));

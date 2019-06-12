@@ -30,10 +30,7 @@ namespace IndependentProject.Classes
             Description = description;
             Helper = helper;
         }
-        public int FinalCost(double SpecialMultiplier)
-        {
-            return (int)(Cost * SpecialMultiplier);
-        }
+
         public override string ToString()
         {
             string s = Name + "\n" + Description + "\nCost: " + Cost;

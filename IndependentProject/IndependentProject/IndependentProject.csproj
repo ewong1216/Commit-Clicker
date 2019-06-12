@@ -131,6 +131,7 @@
     <Content Include="Assets\bargaining.jpg" />
     <Content Include="Assets\cable.png" />
     <Content Include="Assets\clocks.jpg" />
+    <Content Include="Assets\commitgraph.png" />
     <Content Include="Assets\gear.jpg" />
     <Content Include="Assets\money.jpg" />
     <Content Include="Assets\monkey.jpg" />

@@ -34,23 +34,14 @@ namespace IndependentProject
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Data = (Data)e.Parameter;      
-            foreach(Helper h in Data.Helpers)
-            {
-                h.SetCost(1.0 - Data.Specials.ElementAt(0).Multiplier);
-                h.SetCPS(1.0 + Data.Specials.ElementAt(2).Multiplier);
-            }
-            foreach(Upgrade u in Data.Upgrades)
-            {
-                u.Cost = (int) (u.Cost * (1.0 - Data.Specials.ElementAt(1).Multiplier));
-            }
         }
 
         private void Upgrade_Click(object sender, RoutedEventArgs e)
         {
             ClickSound.Play();
             Data.Clicks++;
-            Upgrade u = ((FrameworkElement)sender).DataContext as Upgrade;
-            if(u.Cost <= Data.Commits)
+            Upgrade u = ((FrameworkElement)sender).DataContext as Upgrade; //https://stackoverflow.com/questions/1168976/button-in-a-column-getting-the-row-from-which-it-came-on-the-click-event-handle
+            if (u.Cost <= Data.Commits)
             {
                 u.Helper.UpgradesMultiplier += u.CPSMultiplier;
                 Data.Commits -= u.Cost;
@@ -65,7 +56,7 @@ namespace IndependentProject
         {
             ClickSound.Play();
             Data.Clicks++;
-            Helper helper = ((FrameworkElement)sender).DataContext as Helper;
+            Helper helper = ((FrameworkElement)sender).DataContext as Helper; //https://stackoverflow.com/questions/1168976/button-in-a-column-getting-the-row-from-which-it-came-on-the-click-event-handle
             if (Data.Commits >= helper.Cost)
             {
                 Data.Commits -= helper.Cost;

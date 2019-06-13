@@ -57,7 +57,7 @@ namespace IndependentProject
                 {
                     foreach (Upgrade u in Data.Upgrades)
                     {
-                        u.Cost = (int)(u.Cost * (1.0 - Data.Specials.ElementAt(1).Multiplier));
+                        u.Cost = (int)(u.BaseCost * (1.0 - Data.Specials.ElementAt(1).Multiplier));
                     }
                 }
                 else if(s.Name.Equals("Time Hacking"))

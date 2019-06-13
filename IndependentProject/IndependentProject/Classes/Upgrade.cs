@@ -15,6 +15,7 @@ namespace IndependentProject.Classes
 
         public string Image { get; set; }
         public long Cost { get; set; }
+        public long BaseCost { get; set; }
         public double CPSMultiplier { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -24,13 +25,14 @@ namespace IndependentProject.Classes
         public Upgrade(string image, long cost, double multiplier, string name, string description, Helper helper)
         {
             Image = image;
+            BaseCost = cost;
             Cost = cost;
             CPSMultiplier = multiplier;
             Name = name;
             Description = description;
             Helper = helper;
         }
-
+        
         public override string ToString()
         {
             string s = Name + "\n" + Description + "\nCost: " + Cost;
